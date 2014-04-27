@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProjectTreeState projectID="zfUWCqKGAqAWBAAF" projectPath="C:\Users\Marija\vpworkspace\dijagram_slucajeva_koristenja">
+	<TreeState name="ModelRepository" viewX="0" viewY="0">
+		<ExpandedPath>ModelRepository</ExpandedPath>
+		<SelectedPath>ModelRepository</SelectedPath>
+	</TreeState>
+	<TreeState name="DiagramNavigator" viewX="0" viewY="0">
+		<ExpandedPath>DiagramNavigator</ExpandedPath>
+		<ExpandedPath>DiagramNavigator,UML Diagrams</ExpandedPath>
+		<ExpandedPath>UseCaseDiagram</ExpandedPath>
+		<ExpandedPath>UseCaseDiagram,kH82CqKGAqAWBANL</ExpandedPath>
+		<SelectedPath>UseCaseDiagram,kH82CqKGAqAWBANL</SelectedPath>
+	</TreeState>
+	<TreeState name="ClassBrowser" viewX="0" viewY="0"/>
+	<TreeState name="LogicalView" viewX="0" viewY="0"/>
+</ProjectTreeState>
