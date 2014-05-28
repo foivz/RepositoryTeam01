@@ -42,10 +42,58 @@ namespace PI
             Baza.Instance.izvrsi_upit(sql);
         }
 
-        public static void brisiProizvod(string id)
+        public static void brisiTipProizvoda(string id)
         {
             string sql=string.Format("DELETE FROM tipproizvoda WHERE \"ID\"='{0}'",id);
             Baza.Instance.izvrsi_upit(sql);
+        }
+
+        public static NpgsqlDataReader dohvatiProizvod()
+        {
+            string sql = "SELECT \"repromaterijalproizvod\".\"ID\", \"repromaterijalproizvod\".naziv, cijena, \"repromaterijalproizvod\".opis, stanje, mjera,"
+                          +"\"tipproizvoda\".naziv AS tip FROM tipproizvoda,repromaterijalproizvod WHERE tipproizvoda.\"ID\"=repromaterijalproizvod.\"tipproizvodaID\" "
+                          + " AND repromaterijalproizvod.\"tipproizvodaID\"<>0";
+            return Baza.Instance.dohvati_podatke(sql);
+        }
+
+        public static void unesiProizvod(string naziv, float cijena, string opis, float stanje, string mjera, int tip)
+        {
+            string sql = string.Format("INSERT INTO repromaterijalproizvod(naziv,cijena,opis,stanje,mjera,\"tipproizvodaID\")"
+                            + " VALUES('{0}','{1}','{2}','{3}','{4}','{5}')", naziv,cijena, opis, stanje, mjera, tip);
+            Baza.Instance.izvrsi_upit(sql);
+        }
+
+        public static void azurirajProizvod(string naziv, float cijena, string opis, float stanje, string mjera, int tip, string id)
+        {
+            string sql = string.Format("UPDATE repromaterijalproizvod SET naziv='{0}', cijena='{1}', opis='{2}',"
+                                        +" stanje='{3}', mjera='{4}', \"tipproizvodaID\"='{5}' WHERE \"ID\"='{6}'", naziv, cijena, opis, stanje, mjera, tip, id);
+            Baza.Instance.izvrsi_upit(sql);
+        }
+
+        public static void brisiProizvod(string id)
+        {
+            string sql = string.Format("DELETE FROM repromaterijalproizvod WHERE \"ID\"='{0}'", id);
+            Baza.Instance.izvrsi_upit(sql);
+        }
+
+        public static NpgsqlDataReader dohvatiRepromaterijaleProizvoda(string id)
+        {
+            string sql = string.Format("SELECT \"repromaterijalproizvod\".\"ID\", \"repromaterijalproizvod\".naziv, cijena, \"repromaterijalproizvod\".opis, stanje, \"repromaterijalproizvod\".mjera, kolicina "
+                        + " FROM \"repromaterijalproizvod\", \"sastavnica\" WHERE \"repromaterijalproizvod\".\"ID\" = \"sastavnica\".\"repromaterijalID\" AND \"sastavnica\".\"proizvodID\" = '{0}'", id);
+            return Baza.Instance.dohvati_podatke(sql);
+        }
+
+        public static void brisiSastavnicuProizvoda(string idProizvoda, string idSastavnice)
+        {
+            string sql = string.Format("DELETE FROM sastavnica WHERE \"proizvodID\"='{0}' AND \"repromaterijalID\"='{1}'", idProizvoda,idSastavnice);
+            Baza.Instance.izvrsi_upit(sql);
+        }
+
+        public static NpgsqlDataReader dohvatiRepromaterijaleKojeNemaProizvod(string id)
+        {
+            string sql = string.Format("SELECT \"repromaterijalproizvod\".\"ID\", \"repromaterijalproizvod\".naziv, cijena, \"repromaterijalproizvod\".opis, stanje, \"repromaterijalproizvod\".mjera, kolicina "
+                        + " FROM \"repromaterijalproizvod\", \"sastavnica\" WHERE \"repromaterijalproizvod\".\"ID\" <> \"sastavnica\".\"repromaterijalID\" AND \"sastavnica\".\"proizvodID\" <> '{0}'", id);
+            return Baza.Instance.dohvati_podatke(sql);
         }
     }
 }

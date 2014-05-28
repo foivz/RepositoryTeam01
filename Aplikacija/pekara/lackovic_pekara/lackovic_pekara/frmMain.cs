@@ -37,5 +37,17 @@ namespace PI
             frmTipovi tipovi = new frmTipovi();
             tipovi.ShowDialog();
         }
+
+        private void proizvodiToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmProizvodi proizvodi = new frmProizvodi();
+            proizvodi.ShowDialog();
+        }
+
+        private void sastavniceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSastavnica sastavnica = new frmSastavnica();
+            sastavnica.ShowDialog();
+        }
     }
 }

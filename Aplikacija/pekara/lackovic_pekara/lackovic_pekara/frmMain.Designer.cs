@@ -30,12 +30,13 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aplikacijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.izlazToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.izlazToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proizvodiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipoviToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proizvodiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sastavniceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.repromaterijalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,26 +60,27 @@
             this.aplikacijaToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.aplikacijaToolStripMenuItem.Text = "Aplikacija";
             // 
-            // izlazToolStripMenuItem
-            // 
-            this.izlazToolStripMenuItem.Name = "izlazToolStripMenuItem";
-            this.izlazToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.izlazToolStripMenuItem.Text = "Izlaz";
-            this.izlazToolStripMenuItem.Click += new System.EventHandler(this.izlazToolStripMenuItem_Click);
-            // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // izlazToolStripMenuItem
+            // 
+            this.izlazToolStripMenuItem.Name = "izlazToolStripMenuItem";
+            this.izlazToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.izlazToolStripMenuItem.Text = "Izlaz";
+            this.izlazToolStripMenuItem.Click += new System.EventHandler(this.izlazToolStripMenuItem_Click);
             // 
             // proizvodiToolStripMenuItem
             // 
             this.proizvodiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tipoviToolStripMenuItem,
             this.proizvodiToolStripMenuItem1,
-            this.sastavniceToolStripMenuItem});
+            this.sastavniceToolStripMenuItem,
+            this.repromaterijalToolStripMenuItem});
             this.proizvodiToolStripMenuItem.Name = "proizvodiToolStripMenuItem";
             this.proizvodiToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.proizvodiToolStripMenuItem.Text = "Proizvodi";
@@ -96,12 +98,20 @@
             this.proizvodiToolStripMenuItem1.Name = "proizvodiToolStripMenuItem1";
             this.proizvodiToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.proizvodiToolStripMenuItem1.Text = "Proizvodi";
+            this.proizvodiToolStripMenuItem1.Click += new System.EventHandler(this.proizvodiToolStripMenuItem1_Click);
             // 
             // sastavniceToolStripMenuItem
             // 
             this.sastavniceToolStripMenuItem.Name = "sastavniceToolStripMenuItem";
             this.sastavniceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sastavniceToolStripMenuItem.Text = "Sastavnice";
+            this.sastavniceToolStripMenuItem.Click += new System.EventHandler(this.sastavniceToolStripMenuItem_Click);
+            // 
+            // repromaterijalToolStripMenuItem
+            // 
+            this.repromaterijalToolStripMenuItem.Name = "repromaterijalToolStripMenuItem";
+            this.repromaterijalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.repromaterijalToolStripMenuItem.Text = "Repromaterijal";
             // 
             // frmMain
             // 
@@ -130,5 +140,6 @@
         private System.Windows.Forms.ToolStripMenuItem tipoviToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proizvodiToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem sastavniceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem repromaterijalToolStripMenuItem;
     }
 }

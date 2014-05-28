@@ -38,6 +38,7 @@
             this.txtOpis = new System.Windows.Forms.TextBox();
             this.txtNaziv = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnZatvori = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +60,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnZatvori);
             this.groupBox1.Controls.Add(this.btnObrisi);
             this.groupBox1.Controls.Add(this.btnUredi);
             this.groupBox1.Controls.Add(this.btnDodaj);
@@ -68,7 +70,7 @@
             this.groupBox1.Controls.Add(this.txtNaziv);
             this.groupBox1.Location = new System.Drawing.Point(12, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(219, 348);
+            this.groupBox1.Size = new System.Drawing.Size(219, 362);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -145,6 +147,16 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Tipovi proizvoda";
             // 
+            // btnZatvori
+            // 
+            this.btnZatvori.Location = new System.Drawing.Point(80, 331);
+            this.btnZatvori.Name = "btnZatvori";
+            this.btnZatvori.Size = new System.Drawing.Size(56, 23);
+            this.btnZatvori.TabIndex = 9;
+            this.btnZatvori.Text = "Zatvori";
+            this.btnZatvori.UseVisualStyleBackColor = true;
+            this.btnZatvori.Click += new System.EventHandler(this.btnZatvori_Click);
+            // 
             // frmTipovi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,5 +188,6 @@
         private System.Windows.Forms.Button btnObrisi;
         private System.Windows.Forms.Button btnUredi;
         private System.Windows.Forms.Button btnDodaj;
+        private System.Windows.Forms.Button btnZatvori;
     }
 }

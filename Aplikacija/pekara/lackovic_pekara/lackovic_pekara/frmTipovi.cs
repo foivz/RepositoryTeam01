@@ -17,6 +17,10 @@ namespace PI
             InitializeComponent();
             dohvatiTipoveProizvoda();
         }
+
+        /// <summary>
+        /// Dohvacaju se svi tipovi proizvoda i ucitavaju u datagrid
+        /// </summary>
         private void dohvatiTipoveProizvoda()
         {
             NpgsqlDataReader dr = Upiti.dohvatiTipoveProizvoda();
@@ -31,7 +35,7 @@ namespace PI
         {
             if (txtNaziv.Text == "")
             {
-                MessageBox.Show("Nije unešen naziv proizvoda!");
+                MessageBox.Show("Nije unešen naziv tipa proizvoda!");
             }
             else
             {
@@ -60,15 +64,19 @@ namespace PI
 
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            try
+            DialogResult d = MessageBox.Show("Jeste li sigurni da želite izbrisati tip proizvoda?", "Brisanje tipa proizvoda", MessageBoxButtons.YesNo);
+            if (d == DialogResult.Yes)
             {
-                Upiti.brisiProizvod(id);
-                MessageBox.Show("Uspješno obrisan tip proizvoda!");
-                dohvatiTipoveProizvoda();
-            }
-            catch
-            {
-                MessageBox.Show("Nije uspješno obrisan tip proizvoda!");
+                try
+                {
+                    Upiti.brisiTipProizvoda(id);
+                    MessageBox.Show("Uspješno obrisan tip proizvoda!");
+                    dohvatiTipoveProizvoda();
+                }
+                catch
+                {
+                    MessageBox.Show("Nije uspješno obrisan tip proizvoda!");
+                }
             }
         }
 
@@ -80,13 +88,18 @@ namespace PI
             {
                 int redak = dataGridView1.CurrentCell.RowIndex;
                 id = dataGridView1.Rows[redak].Cells[0].Value.ToString();
-                txtNaziv.Text= dataGridView1.Rows[redak].Cells[1].Value.ToString();
+                txtNaziv.Text = dataGridView1.Rows[redak].Cells[1].Value.ToString();
                 txtOpis.Text = dataGridView1.Rows[redak].Cells[2].Value.ToString();
             }
             catch
             {
 
             }
+        }
+
+        private void btnZatvori_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
