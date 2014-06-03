@@ -85,6 +85,12 @@
     <Compile Include="frmProizvodi.Designer.cs">
       <DependentUpon>frmProizvodi.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRepromaterijali.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRepromaterijali.Designer.cs">
+      <DependentUpon>frmRepromaterijali.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSastavnica.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProizvodi.resx">
       <DependentUpon>frmProizvodi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRepromaterijali.resx">
+      <DependentUpon>frmRepromaterijali.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSastavnica.resx">
       <DependentUpon>frmSastavnica.cs</DependentUpon>

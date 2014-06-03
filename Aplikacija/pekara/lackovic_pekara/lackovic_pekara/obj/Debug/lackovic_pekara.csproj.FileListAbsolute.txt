@@ -29,3 +29,4 @@ D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\De
 D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\Debug\PI.frmProizvodi.resources
 D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\Debug\PI.frmTipovi.resources
 D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\Debug\PI.frmSastavnica.resources
+D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\Debug\PI.frmRepromaterijali.resources

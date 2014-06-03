@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aplikacijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,14 +64,14 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // izlazToolStripMenuItem
             // 
             this.izlazToolStripMenuItem.Name = "izlazToolStripMenuItem";
-            this.izlazToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.izlazToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.izlazToolStripMenuItem.Text = "Izlaz";
             this.izlazToolStripMenuItem.Click += new System.EventHandler(this.izlazToolStripMenuItem_Click);
             // 
@@ -89,34 +90,35 @@
             // tipoviToolStripMenuItem
             // 
             this.tipoviToolStripMenuItem.Name = "tipoviToolStripMenuItem";
-            this.tipoviToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tipoviToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.tipoviToolStripMenuItem.Text = "Tipovi";
             this.tipoviToolStripMenuItem.Click += new System.EventHandler(this.tipoviToolStripMenuItem_Click);
             // 
             // proizvodiToolStripMenuItem1
             // 
             this.proizvodiToolStripMenuItem1.Name = "proizvodiToolStripMenuItem1";
-            this.proizvodiToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.proizvodiToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.proizvodiToolStripMenuItem1.Text = "Proizvodi";
             this.proizvodiToolStripMenuItem1.Click += new System.EventHandler(this.proizvodiToolStripMenuItem1_Click);
             // 
             // sastavniceToolStripMenuItem
             // 
             this.sastavniceToolStripMenuItem.Name = "sastavniceToolStripMenuItem";
-            this.sastavniceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sastavniceToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.sastavniceToolStripMenuItem.Text = "Sastavnice";
             this.sastavniceToolStripMenuItem.Click += new System.EventHandler(this.sastavniceToolStripMenuItem_Click);
             // 
             // repromaterijalToolStripMenuItem
             // 
             this.repromaterijalToolStripMenuItem.Name = "repromaterijalToolStripMenuItem";
-            this.repromaterijalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.repromaterijalToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.repromaterijalToolStripMenuItem.Text = "Repromaterijal";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(809, 439);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
