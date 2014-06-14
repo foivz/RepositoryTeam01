@@ -30,13 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRepromaterijali));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtNaziv = new System.Windows.Forms.TextBox();
-            this.txtCijena = new System.Windows.Forms.TextBox();
             this.txtStanje = new System.Windows.Forms.TextBox();
             this.txtOpis = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,7 +43,6 @@
             this.btnAzuriraj = new System.Windows.Forms.Button();
             this.btnZatvori = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.cmbTipovi = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,19 +55,10 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Naziv repromaterijala";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Cijena repromaterijala";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 65);
+            this.label3.Location = new System.Drawing.Point(26, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 13);
             this.label3.TabIndex = 2;
@@ -80,7 +67,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 93);
+            this.label4.Location = new System.Drawing.Point(28, 63);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 13);
             this.label4.TabIndex = 3;
@@ -89,20 +76,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 124);
+            this.label5.Location = new System.Drawing.Point(26, 94);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Opis repromaterijala";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(26, 222);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Tip repromaterijala";
             // 
             // txtNaziv
             // 
@@ -111,23 +89,16 @@
             this.txtNaziv.Size = new System.Drawing.Size(121, 20);
             this.txtNaziv.TabIndex = 6;
             // 
-            // txtCijena
-            // 
-            this.txtCijena.Location = new System.Drawing.Point(146, 39);
-            this.txtCijena.Name = "txtCijena";
-            this.txtCijena.Size = new System.Drawing.Size(121, 20);
-            this.txtCijena.TabIndex = 7;
-            // 
             // txtStanje
             // 
-            this.txtStanje.Location = new System.Drawing.Point(146, 65);
+            this.txtStanje.Location = new System.Drawing.Point(146, 35);
             this.txtStanje.Name = "txtStanje";
             this.txtStanje.Size = new System.Drawing.Size(121, 20);
             this.txtStanje.TabIndex = 8;
             // 
             // txtOpis
             // 
-            this.txtOpis.Location = new System.Drawing.Point(146, 124);
+            this.txtOpis.Location = new System.Drawing.Point(146, 94);
             this.txtOpis.Multiline = true;
             this.txtOpis.Name = "txtOpis";
             this.txtOpis.Size = new System.Drawing.Size(187, 81);
@@ -144,17 +115,22 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(372, 65);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(330, 408);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(42, 266);
+            this.btnDodaj.Location = new System.Drawing.Point(27, 208);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(83, 42);
             this.btnDodaj.TabIndex = 14;
@@ -164,7 +140,7 @@
             // 
             // btnObrisi
             // 
-            this.btnObrisi.Location = new System.Drawing.Point(155, 266);
+            this.btnObrisi.Location = new System.Drawing.Point(140, 208);
             this.btnObrisi.Name = "btnObrisi";
             this.btnObrisi.Size = new System.Drawing.Size(84, 42);
             this.btnObrisi.TabIndex = 15;
@@ -174,7 +150,7 @@
             // 
             // btnAzuriraj
             // 
-            this.btnAzuriraj.Location = new System.Drawing.Point(265, 266);
+            this.btnAzuriraj.Location = new System.Drawing.Point(250, 208);
             this.btnAzuriraj.Name = "btnAzuriraj";
             this.btnAzuriraj.Size = new System.Drawing.Size(83, 42);
             this.btnAzuriraj.TabIndex = 16;
@@ -184,7 +160,7 @@
             // 
             // btnZatvori
             // 
-            this.btnZatvori.Location = new System.Drawing.Point(155, 314);
+            this.btnZatvori.Location = new System.Drawing.Point(140, 256);
             this.btnZatvori.Name = "btnZatvori";
             this.btnZatvori.Size = new System.Drawing.Size(75, 23);
             this.btnZatvori.TabIndex = 17;
@@ -194,19 +170,17 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(146, 93);
+            this.comboBox1.Items.AddRange(new object[] {
+            "tona",
+            "kg",
+            "dag",
+            "l"});
+            this.comboBox1.Location = new System.Drawing.Point(146, 63);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 18;
-            // 
-            // cmbTipovi
-            // 
-            this.cmbTipovi.FormattingEnabled = true;
-            this.cmbTipovi.Location = new System.Drawing.Point(146, 219);
-            this.cmbTipovi.Name = "cmbTipovi";
-            this.cmbTipovi.Size = new System.Drawing.Size(121, 21);
-            this.cmbTipovi.TabIndex = 19;
             // 
             // frmRepromaterijali
             // 
@@ -216,7 +190,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(713, 495);
-            this.Controls.Add(this.cmbTipovi);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnZatvori);
             this.Controls.Add(this.btnAzuriraj);
@@ -226,16 +199,14 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtOpis);
             this.Controls.Add(this.txtStanje);
-            this.Controls.Add(this.txtCijena);
             this.Controls.Add(this.txtNaziv);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmRepromaterijali";
             this.Text = "frmRepromaterijali";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -245,13 +216,10 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNaziv;
-        private System.Windows.Forms.TextBox txtCijena;
         private System.Windows.Forms.TextBox txtStanje;
         private System.Windows.Forms.TextBox txtOpis;
         private System.Windows.Forms.Label label7;
@@ -261,6 +229,5 @@
         private System.Windows.Forms.Button btnAzuriraj;
         private System.Windows.Forms.Button btnZatvori;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox cmbTipovi;
     }
 }

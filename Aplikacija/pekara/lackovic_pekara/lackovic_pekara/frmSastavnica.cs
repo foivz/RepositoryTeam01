@@ -15,6 +15,7 @@ namespace PI
         public frmSastavnica()
         {
             InitializeComponent();
+            cmbMjera.SelectedIndex = 0;
             dohvatiProizvode();
         }
         private void dohvatiProizvode()
@@ -46,7 +47,7 @@ namespace PI
                 dr.Dispose();
                 dataGridView1.DataSource = dt2;
             }
-            catch
+            catch(Exception ex)
             {
 
             }
@@ -76,6 +77,26 @@ namespace PI
                     MessageBox.Show("Nije uspješno obrisana sastavnica proizvoda!");
                 }
             }
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            if (txtKolicinaDodaj.Text == "")
+            {
+                MessageBox.Show("Morate upisati količinu!");
+            }
+            else
+            {
+                int indeksProizvoda=dgrProizvodi.CurrentCell.RowIndex;
+                int indeksRepromaterijala=dataGridView1.CurrentCell.RowIndex;
+                Upiti.dodajRepromaterijal(dgrProizvodi.Rows[indeksProizvoda].Cells[0].Value.ToString(), dataGridView1.Rows[indeksRepromaterijala].Cells[0].Value.ToString(), txtKolicinaDodaj.Text, cmbMjera.Text);
+                dohvatiProizvode();
+            }
+        }
+
+        private void btnZatvori(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

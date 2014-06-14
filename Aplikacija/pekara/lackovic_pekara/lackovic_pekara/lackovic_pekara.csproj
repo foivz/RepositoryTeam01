@@ -47,6 +47,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Mono.Security">
       <HintPath>bin\Mono.Security.dll</HintPath>
     </Reference>
@@ -55,6 +57,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,7 +69,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Baza\Baza.cs" />
+    <Compile Include="Baza\Statics.cs" />
     <Compile Include="Baza\Upiti.cs" />
+    <Compile Include="frmAzuriranjeDokumenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAzuriranjeDokumenta.Designer.cs">
+      <DependentUpon>frmAzuriranjeDokumenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDokument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDokument.Designer.cs">
+      <DependentUpon>frmDokument.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +94,12 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPoslovniPartner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPoslovniPartner.Designer.cs">
+      <DependentUpon>frmPoslovniPartner.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProizvodi.cs">
       <SubType>Form</SubType>
@@ -103,18 +125,33 @@
     <Compile Include="frmTipovi.Designer.cs">
       <DependentUpon>frmTipovi.cs</DependentUpon>
     </Compile>
-    <Compile Include="pekara_bazaDataSet.Designer.cs">
+    <Compile Include="IzvjestajOtpremnice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IzvjestajOtpremnice.Designer.cs">
+      <DependentUpon>IzvjestajOtpremnice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pekara.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>pekara_bazaDataSet.xsd</DependentUpon>
+      <DependentUpon>Pekara.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAzuriranjeDokumenta.resx">
+      <DependentUpon>frmAzuriranjeDokumenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDokument.resx">
+      <DependentUpon>frmDokument.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPoslovniPartner.resx">
+      <DependentUpon>frmPoslovniPartner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProizvodi.resx">
       <DependentUpon>frmProizvodi.cs</DependentUpon>
@@ -128,6 +165,9 @@
     <EmbeddedResource Include="frmTipovi.resx">
       <DependentUpon>frmTipovi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IzvjestajOtpremnice.resx">
+      <DependentUpon>IzvjestajOtpremnice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -138,16 +178,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="pekara_bazaDataSet.xsc">
-      <DependentUpon>pekara_bazaDataSet.xsd</DependentUpon>
+    <EmbeddedResource Include="Otpremnica.rdlc" />
+    <None Include="Pekara.xsc">
+      <DependentUpon>Pekara.xsd</DependentUpon>
     </None>
-    <None Include="pekara_bazaDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>pekara_bazaDataSet.Designer.cs</LastGenOutput>
+    <None Include="Pekara.xsd">
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Pekara.Designer.cs</LastGenOutput>
     </None>
-    <None Include="pekara_bazaDataSet.xss">
-      <DependentUpon>pekara_bazaDataSet.xsd</DependentUpon>
+    <None Include="Pekara.xss">
+      <DependentUpon>Pekara.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -165,10 +206,7 @@
   <ItemGroup>
     <None Include="Resources\back.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forme\" />
-    <Folder Include="Klase\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>

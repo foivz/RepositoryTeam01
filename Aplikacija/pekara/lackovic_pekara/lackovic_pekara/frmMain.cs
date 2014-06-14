@@ -49,5 +49,23 @@ namespace PI
             frmSastavnica sastavnica = new frmSastavnica();
             sastavnica.ShowDialog();
         }
+
+        private void repromaterijalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRepromaterijali repromaterijali = new frmRepromaterijali();
+            repromaterijali.ShowDialog();
+        }
+
+        private void dokumentiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDokument dokument = new frmDokument();
+            dokument.ShowDialog();
+        }
+
+        private void poslovniPartnerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPoslovniPartner poslovniPartner = new frmPoslovniPartner();
+            poslovniPartner.ShowDialog();
+        }
     }
 }

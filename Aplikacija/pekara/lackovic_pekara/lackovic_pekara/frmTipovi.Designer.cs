@@ -86,31 +86,31 @@
             // 
             // btnObrisi
             // 
-            this.btnObrisi.Location = new System.Drawing.Point(142, 302);
+            this.btnObrisi.Location = new System.Drawing.Point(153, 275);
             this.btnObrisi.Name = "btnObrisi";
-            this.btnObrisi.Size = new System.Drawing.Size(56, 23);
+            this.btnObrisi.Size = new System.Drawing.Size(60, 50);
             this.btnObrisi.TabIndex = 8;
-            this.btnObrisi.Text = "Obriši";
+            this.btnObrisi.Text = "Obriši tip";
             this.btnObrisi.UseVisualStyleBackColor = true;
             this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
             // 
             // btnUredi
             // 
-            this.btnUredi.Location = new System.Drawing.Point(80, 302);
+            this.btnUredi.Location = new System.Drawing.Point(80, 275);
             this.btnUredi.Name = "btnUredi";
-            this.btnUredi.Size = new System.Drawing.Size(56, 23);
+            this.btnUredi.Size = new System.Drawing.Size(67, 50);
             this.btnUredi.TabIndex = 7;
-            this.btnUredi.Text = "Uredi";
+            this.btnUredi.Text = "Uredi tip";
             this.btnUredi.UseVisualStyleBackColor = true;
             this.btnUredi.Click += new System.EventHandler(this.btnUredi_Click);
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(18, 302);
+            this.btnDodaj.Location = new System.Drawing.Point(6, 275);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(56, 23);
+            this.btnDodaj.Size = new System.Drawing.Size(68, 50);
             this.btnDodaj.TabIndex = 6;
-            this.btnDodaj.Text = "Dodaj";
+            this.btnDodaj.Text = "Dodaj tip";
             this.btnDodaj.UseVisualStyleBackColor = true;
             this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 

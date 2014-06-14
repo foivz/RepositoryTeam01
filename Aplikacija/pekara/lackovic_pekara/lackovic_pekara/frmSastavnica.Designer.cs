@@ -36,6 +36,10 @@
             this.btnDodaj = new System.Windows.Forms.Button();
             this.btnObrisi = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtKolicinaDodaj = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbMjera = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgrProizvodi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrRepromaterijal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -99,12 +103,13 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(91, 331);
+            this.btnDodaj.Location = new System.Drawing.Point(94, 411);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(67, 31);
             this.btnDodaj.TabIndex = 6;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // btnObrisi
             // 
@@ -125,12 +130,58 @@
             this.dataGridView1.Size = new System.Drawing.Size(237, 276);
             this.dataGridView1.TabIndex = 8;
             // 
+            // txtKolicinaDodaj
+            // 
+            this.txtKolicinaDodaj.Location = new System.Drawing.Point(12, 342);
+            this.txtKolicinaDodaj.Name = "txtKolicinaDodaj";
+            this.txtKolicinaDodaj.Size = new System.Drawing.Size(100, 20);
+            this.txtKolicinaDodaj.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(39, 326);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Količina";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(160, 326);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(33, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Mjera";
+            // 
+            // cmbMjera
+            // 
+            this.cmbMjera.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMjera.FormattingEnabled = true;
+            this.cmbMjera.Items.AddRange(new object[] {
+            "tona",
+            "kg",
+            "dag",
+            "l"});
+            this.cmbMjera.Location = new System.Drawing.Point(128, 342);
+            this.cmbMjera.Name = "cmbMjera";
+            this.cmbMjera.Size = new System.Drawing.Size(107, 21);
+            this.cmbMjera.TabIndex = 13;
+            // 
+            // btnZatvori
+            // 
+            // 
             // frmSastavnica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Yellow;
             this.ClientSize = new System.Drawing.Size(900, 733);
+            this.Controls.Add(this.cmbMjera);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtKolicinaDodaj);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnObrisi);
             this.Controls.Add(this.btnDodaj);
@@ -160,5 +211,9 @@
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Button btnObrisi;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtKolicinaDodaj;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbMjera;
     }
 }

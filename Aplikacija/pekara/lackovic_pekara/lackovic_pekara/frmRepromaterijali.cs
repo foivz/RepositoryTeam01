@@ -35,34 +35,21 @@ namespace PI
         {
             if (txtNaziv.Text == "")
             {
-                MessageBox.Show("Nije unešen naziv proizvoda!");
+                MessageBox.Show("Nije unešen naziv repromaterijala!");
             }
             else
             {
-                string selektiraniTip = cmbTipovi.Text;
-                string id = "";
-                for (int i = 0; i < selektiraniTip.Length; i++)
-                {
-                    if (selektiraniTip[i] == '-')
-                    {
-                        break;
-                    }
-                    id += selektiraniTip[i].ToString();
-                }
-                float cijena = 0;
-                float.TryParse(txtCijena.Text, out cijena);
                 float stanje = 0;
                 float.TryParse(txtStanje.Text, out stanje);
-                Upiti.unesiProizvod(txtNaziv.Text, cijena, txtOpis.Text, stanje, comboBox1.Text, int.Parse(id));
+                Upiti.unesiProizvod(txtNaziv.Text, 0, txtOpis.Text, stanje, comboBox1.Text, 0);
                 MessageBox.Show("Uspješno unešen repromaterijal");
                 dohvatiRepromaterijal();
                 txtOpis.Text = "";
                 txtNaziv.Text = "";
                 txtStanje.Text = "0";
-                txtCijena.Text = "";
             }
         }
-
+        string id = "";
         private void btnObrisi_Click(object sender, EventArgs e)
         {
             DialogResult d = MessageBox.Show("Jeste li sigurni da želite izbrisati repromaterijal?", "Brisanje repromaterijala", MessageBoxButtons.YesNo);
@@ -71,7 +58,7 @@ namespace PI
                 try
                 {
                     Upiti.brisiRepromaterijal(id);
-                    MessageBox.Show("Uspješno obrisan proizvoda!");
+                    MessageBox.Show("Uspješno obrisan repromaterijala!");
                     dohvatiRepromaterijal();
                 }
                 catch
@@ -90,22 +77,10 @@ namespace PI
             }
             else
             {
-                string selektiraniTip = cmbTipovi.Text;
-                string idTip = "";
-                for (int i = 0; i < selektiraniTip.Length; i++)
-                {
-                    if (selektiraniTip[i] == '-')
-                    {
-                        break;
-                    }
-                    idTip += selektiraniTip[i].ToString();
-                }
-                float cijena = 0;
-                float.TryParse(txtCijena.Text, out cijena);
                 float stanje = 0;
                 float.TryParse(txtStanje.Text, out stanje);
-                Upiti.azurirajProizvod(txtNaziv.Text, cijena, txtOpis.Text, stanje, comboBox1.Text, int.Parse(idTip), id);
-                MessageBox.Show("Uspješno ažuriran proizvod!");
+                Upiti.azurirajRepromaterijal(txtNaziv.Text, 0, txtOpis.Text, stanje, comboBox1.Text, 0, id);
+                MessageBox.Show("Uspješno ažuriran repromaterijal!");
                 dohvatiRepromaterijal();
             }
         }
@@ -122,7 +97,6 @@ namespace PI
                 int redak = dataGridView1.CurrentCell.RowIndex;
                 id = dataGridView1.Rows[redak].Cells[0].Value.ToString();
                 txtNaziv.Text = dataGridView1.Rows[redak].Cells[1].Value.ToString();
-                txtCijena.Text = dataGridView1.Rows[redak].Cells[2].Value.ToString();
                 txtOpis.Text = dataGridView1.Rows[redak].Cells[3].Value.ToString();
                 txtStanje.Text = dataGridView1.Rows[redak].Cells[4].Value.ToString();
                 for (int i = 0; i < comboBox1.Items.Count; i++)
@@ -130,24 +104,6 @@ namespace PI
                     if (comboBox1.Items[i].ToString() == dataGridView1.Rows[redak].Cells[5].Value.ToString())
                     {
                         comboBox1.SelectedIndex = i;
-                    }
-                }
-                for (int i = 0; i < cmbTipovi.Items.Count; i++)
-                {
-                    string naziv = "";
-                    string trenutniTip = cmbTipovi.Items[i].ToString();
-                    int j = 0;
-                    for (j = 0; j < trenutniTip.Length; j++)
-                    {
-                        if (trenutniTip[j] == '-')
-                        {
-                            break;
-                        }
-                    }
-                    naziv = trenutniTip.Substring(j + 2);
-                    if (naziv == dataGridView1.Rows[redak].Cells[6].Value.ToString())
-                    {
-                        cmbTipovi.SelectedIndex = i;
                     }
                 }
             }

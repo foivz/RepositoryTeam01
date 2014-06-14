@@ -30,3 +30,9 @@ D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\De
 D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\Debug\PI.frmTipovi.resources
 D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\Debug\PI.frmSastavnica.resources
 D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\Debug\PI.frmRepromaterijali.resources
+D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\Debug\PI.frmAzuriranjeDokumenta.resources
+D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\Debug\PI.frmDokument.resources
+D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\Debug\PI.frmPoslovniPartner.resources
+D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\Debug\PI.IzvjestajOtpremnice.resources
+D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\Debug\RdlCompile.cache
+D:\Faks\PI\PROJEKT\2014\aplikacija\pekara\lackovic_pekara\lackovic_pekara\obj\Debug\RdlCompile.compiled

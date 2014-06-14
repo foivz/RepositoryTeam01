@@ -21,7 +21,8 @@ namespace PI
         {
             string username = txtUsername.Text;
             string lozinka = txtPassword.Text;
-            if (Upiti.provjeriLogin(username, lozinka))
+            Statics.id = Upiti.provjeriLogin(username, lozinka).ToString();
+            if (Statics.id !="0")
             {
                 frmMain glavna = new frmMain();
                 glavna.ShowDialog();
