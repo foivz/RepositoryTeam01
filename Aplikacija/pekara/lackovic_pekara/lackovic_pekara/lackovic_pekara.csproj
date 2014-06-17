@@ -71,71 +71,89 @@
     <Compile Include="Baza\Baza.cs" />
     <Compile Include="Baza\Statics.cs" />
     <Compile Include="Baza\Upiti.cs" />
-    <Compile Include="frmAzuriranjeDokumenta.cs">
+    <Compile Include="Forme\frmAzuriranjeDokumenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAzuriranjeDokumenta.Designer.cs">
+    <Compile Include="Forme\frmAzuriranjeDokumenta.Designer.cs">
       <DependentUpon>frmAzuriranjeDokumenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDokument.cs">
+    <Compile Include="Forme\frmDokument.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDokument.Designer.cs">
+    <Compile Include="Forme\frmDokument.Designer.cs">
       <DependentUpon>frmDokument.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="Forme\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
+    <Compile Include="Forme\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="Forme\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="Forme\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOsoba.cs">
+    <Compile Include="Forme\frmOsoba.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOsoba.Designer.cs">
+    <Compile Include="Forme\frmOsoba.Designer.cs">
       <DependentUpon>frmOsoba.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPoslovniPartner.cs">
+    <Compile Include="Forme\frmPoslovniPartner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPoslovniPartner.Designer.cs">
+    <Compile Include="Forme\frmPoslovniPartner.Designer.cs">
       <DependentUpon>frmPoslovniPartner.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProizvodi.cs">
+    <Compile Include="Forme\frmProizvodi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProizvodi.Designer.cs">
+    <Compile Include="Forme\frmProizvodi.Designer.cs">
       <DependentUpon>frmProizvodi.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRepromaterijali.cs">
+    <Compile Include="Forme\frmRepromaterijali.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRepromaterijali.Designer.cs">
+    <Compile Include="Forme\frmRepromaterijali.Designer.cs">
       <DependentUpon>frmRepromaterijali.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSastavnica.cs">
+    <Compile Include="Forme\frmSastavnica.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSastavnica.Designer.cs">
+    <Compile Include="Forme\frmSastavnica.Designer.cs">
       <DependentUpon>frmSastavnica.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTipovi.cs">
+    <Compile Include="Forme\frmTipovi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTipovi.Designer.cs">
+    <Compile Include="Forme\frmTipovi.Designer.cs">
       <DependentUpon>frmTipovi.cs</DependentUpon>
     </Compile>
-    <Compile Include="IzvjestajOtpremnice.cs">
+    <Compile Include="Forme\IzvjestajIzdatnice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IzvjestajOtpremnice.Designer.cs">
+    <Compile Include="Forme\IzvjestajIzdatnice.Designer.cs">
+      <DependentUpon>IzvjestajIzdatnice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\IzvjestajOtpremnice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\IzvjestajOtpremnice.Designer.cs">
       <DependentUpon>IzvjestajOtpremnice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\IzvjestajPredatnice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\IzvjestajPredatnice.Designer.cs">
+      <DependentUpon>IzvjestajPredatnice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forme\IzvjestajPrimke.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forme\IzvjestajPrimke.Designer.cs">
+      <DependentUpon>IzvjestajPrimke.cs</DependentUpon>
     </Compile>
     <Compile Include="Pekara.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -144,37 +162,37 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAzuriranjeDokumenta.resx">
+    <EmbeddedResource Include="Forme\frmAzuriranjeDokumenta.resx">
       <DependentUpon>frmAzuriranjeDokumenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDokument.resx">
+    <EmbeddedResource Include="Forme\frmDokument.resx">
       <DependentUpon>frmDokument.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
+    <EmbeddedResource Include="Forme\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
+    <EmbeddedResource Include="Forme\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOsoba.resx">
+    <EmbeddedResource Include="Forme\frmOsoba.resx">
       <DependentUpon>frmOsoba.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPoslovniPartner.resx">
+    <EmbeddedResource Include="Forme\frmPoslovniPartner.resx">
       <DependentUpon>frmPoslovniPartner.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProizvodi.resx">
+    <EmbeddedResource Include="Forme\frmProizvodi.resx">
       <DependentUpon>frmProizvodi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRepromaterijali.resx">
+    <EmbeddedResource Include="Forme\frmRepromaterijali.resx">
       <DependentUpon>frmRepromaterijali.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSastavnica.resx">
+    <EmbeddedResource Include="Forme\frmSastavnica.resx">
       <DependentUpon>frmSastavnica.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTipovi.resx">
+    <EmbeddedResource Include="Forme\frmTipovi.resx">
       <DependentUpon>frmTipovi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IzvjestajOtpremnice.resx">
+    <EmbeddedResource Include="Forme\IzvjestajOtpremnice.resx">
       <DependentUpon>IzvjestajOtpremnice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
