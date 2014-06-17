@@ -40,6 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbMjera = new System.Windows.Forms.ComboBox();
+            this.btnZatvori = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrProizvodi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrRepromaterijal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -103,7 +104,7 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(94, 411);
+            this.btnDodaj.Location = new System.Drawing.Point(42, 417);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(67, 31);
             this.btnDodaj.TabIndex = 6;
@@ -171,6 +172,13 @@
             // 
             // btnZatvori
             // 
+            this.btnZatvori.Location = new System.Drawing.Point(128, 417);
+            this.btnZatvori.Name = "btnZatvori";
+            this.btnZatvori.Size = new System.Drawing.Size(67, 31);
+            this.btnZatvori.TabIndex = 14;
+            this.btnZatvori.Text = "Zatvori";
+            this.btnZatvori.UseVisualStyleBackColor = true;
+            this.btnZatvori.Click += new System.EventHandler(this.btnZatvori_Click);
             // 
             // frmSastavnica
             // 
@@ -178,6 +186,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Yellow;
             this.ClientSize = new System.Drawing.Size(900, 733);
+            this.Controls.Add(this.btnZatvori);
             this.Controls.Add(this.cmbMjera);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -215,5 +224,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbMjera;
+        private System.Windows.Forms.Button btnZatvori;
     }
 }

@@ -67,5 +67,11 @@ namespace PI
             frmPoslovniPartner poslovniPartner = new frmPoslovniPartner();
             poslovniPartner.ShowDialog();
         }
+
+        private void osobaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmOsoba osoba = new frmOsoba();
+            osoba.ShowDialog();
+        }
     }
 }

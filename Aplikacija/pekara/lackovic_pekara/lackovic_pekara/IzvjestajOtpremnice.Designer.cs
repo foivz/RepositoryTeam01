@@ -31,22 +31,13 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.dokumentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pekara_bazaDataSet = new PI.pekara_bazaDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dokumentTableAdapter = new PI.pekara_bazaDataSetTableAdapters.dokumentTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dokumentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pekara_bazaDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dokumentBindingSource
             // 
             this.dokumentBindingSource.DataMember = "dokument";
-            this.dokumentBindingSource.DataSource = this.pekara_bazaDataSet;
-            // 
-            // pekara_bazaDataSet
-            // 
-            this.pekara_bazaDataSet.DataSetName = "pekara_bazaDataSet";
-            this.pekara_bazaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -59,10 +50,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(686, 260);
             this.reportViewer1.TabIndex = 0;
             // 
-            // dokumentTableAdapter
-            // 
-            this.dokumentTableAdapter.ClearBeforeFill = true;
-            // 
             // IzvjestajOtpremnice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -73,7 +60,6 @@
             this.Text = "IzvjestajOtpremnice";
             this.Load += new System.EventHandler(this.IzvjestajOtpremnice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dokumentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pekara_bazaDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -82,7 +68,5 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource dokumentBindingSource;
-        private pekara_bazaDataSet pekara_bazaDataSet;
-        private pekara_bazaDataSetTableAdapters.dokumentTableAdapter dokumentTableAdapter;
     }
 }

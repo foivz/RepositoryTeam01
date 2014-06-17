@@ -94,7 +94,7 @@ namespace PI
             }
         }
 
-        private void btnZatvori(object sender, EventArgs e)
+        private void btnZatvori_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -142,6 +142,7 @@
             this.osobaToolStripMenuItem1.Name = "osobaToolStripMenuItem1";
             this.osobaToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.osobaToolStripMenuItem1.Text = "Osoba";
+            this.osobaToolStripMenuItem1.Click += new System.EventHandler(this.osobaToolStripMenuItem1_Click);
             // 
             // dokumentiToolStripMenuItem
             // 

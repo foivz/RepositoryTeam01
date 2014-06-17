@@ -41,6 +41,7 @@
             this.btnAzuriraj = new System.Windows.Forms.Button();
             this.btnObrisi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnZatvori = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -168,11 +169,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Popis poslovnih partnera";
             // 
+            // btnZatvori
+            // 
+            this.btnZatvori.Location = new System.Drawing.Point(102, 377);
+            this.btnZatvori.Name = "btnZatvori";
+            this.btnZatvori.Size = new System.Drawing.Size(75, 23);
+            this.btnZatvori.TabIndex = 15;
+            this.btnZatvori.Text = "Zatvori";
+            this.btnZatvori.UseVisualStyleBackColor = true;
+            this.btnZatvori.Click += new System.EventHandler(this.btnZatvori_Click);
+            // 
             // frmPoslovniPartner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Yellow;
             this.ClientSize = new System.Drawing.Size(811, 479);
+            this.Controls.Add(this.btnZatvori);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnObrisi);
             this.Controls.Add(this.btnAzuriraj);
@@ -210,5 +223,6 @@
         private System.Windows.Forms.Button btnAzuriraj;
         private System.Windows.Forms.Button btnObrisi;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnZatvori;
     }
 }

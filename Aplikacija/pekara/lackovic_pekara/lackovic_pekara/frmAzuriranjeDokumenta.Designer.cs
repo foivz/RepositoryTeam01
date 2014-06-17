@@ -32,6 +32,8 @@
             this.dgrRepromaterijali = new System.Windows.Forms.DataGridView();
             this.dgrStavke = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBrisiProizvod = new System.Windows.Forms.Button();
+            this.btnDodajProizvod = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,14 +48,13 @@
             this.btnDodajRepromaterijal = new System.Windows.Forms.Button();
             this.btnBrisiRepromaterijal = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dgrProizvodi = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnObrisi = new System.Windows.Forms.Button();
             this.btnIspis = new System.Windows.Forms.Button();
-            this.dgrProizvodi = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnDodajProizvod = new System.Windows.Forms.Button();
-            this.btnBrisiProizvod = new System.Windows.Forms.Button();
+            this.btnZatvori = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgrPostojeci)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrRepromaterijali)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgrStavke)).BeginInit();
@@ -128,6 +129,26 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dodavanje novog dokumenta";
+            // 
+            // btnBrisiProizvod
+            // 
+            this.btnBrisiProizvod.Location = new System.Drawing.Point(230, 305);
+            this.btnBrisiProizvod.Name = "btnBrisiProizvod";
+            this.btnBrisiProizvod.Size = new System.Drawing.Size(90, 52);
+            this.btnBrisiProizvod.TabIndex = 18;
+            this.btnBrisiProizvod.Text = "Briši proizvod iz dokumenta";
+            this.btnBrisiProizvod.UseVisualStyleBackColor = true;
+            this.btnBrisiProizvod.Click += new System.EventHandler(this.btnBrisiProizvod_Click);
+            // 
+            // btnDodajProizvod
+            // 
+            this.btnDodajProizvod.Location = new System.Drawing.Point(130, 304);
+            this.btnDodajProizvod.Name = "btnDodajProizvod";
+            this.btnDodajProizvod.Size = new System.Drawing.Size(94, 53);
+            this.btnDodajProizvod.TabIndex = 17;
+            this.btnDodajProizvod.Text = "Dodaj proizvod u dokument";
+            this.btnDodajProizvod.UseVisualStyleBackColor = true;
+            this.btnDodajProizvod.Click += new System.EventHandler(this.btnDodajProizvod_Click);
             // 
             // btnDodaj
             // 
@@ -247,6 +268,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btnZatvori);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.dgrProizvodi);
             this.groupBox2.Controls.Add(this.label7);
@@ -261,6 +283,26 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Postojeći dokumenti i repromaterijali";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(460, 324);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 13);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Proizvodi";
+            // 
+            // dgrProizvodi
+            // 
+            this.dgrProizvodi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgrProizvodi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgrProizvodi.Location = new System.Drawing.Point(463, 340);
+            this.dgrProizvodi.Name = "dgrProizvodi";
+            this.dgrProizvodi.Size = new System.Drawing.Size(129, 231);
+            this.dgrProizvodi.TabIndex = 19;
             // 
             // label7
             // 
@@ -302,50 +344,22 @@
             this.btnIspis.UseVisualStyleBackColor = true;
             this.btnIspis.Click += new System.EventHandler(this.btnIspis_Click);
             // 
-            // dgrProizvodi
+            // btnZatvori
             // 
-            this.dgrProizvodi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgrProizvodi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrProizvodi.Location = new System.Drawing.Point(463, 340);
-            this.dgrProizvodi.Name = "dgrProizvodi";
-            this.dgrProizvodi.Size = new System.Drawing.Size(129, 231);
-            this.dgrProizvodi.TabIndex = 19;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(460, 324);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 13);
-            this.label8.TabIndex = 20;
-            this.label8.Text = "Proizvodi";
-            // 
-            // btnDodajProizvod
-            // 
-            this.btnDodajProizvod.Location = new System.Drawing.Point(130, 304);
-            this.btnDodajProizvod.Name = "btnDodajProizvod";
-            this.btnDodajProizvod.Size = new System.Drawing.Size(94, 53);
-            this.btnDodajProizvod.TabIndex = 17;
-            this.btnDodajProizvod.Text = "Dodaj proizvod u dokument";
-            this.btnDodajProizvod.UseVisualStyleBackColor = true;
-            this.btnDodajProizvod.Click += new System.EventHandler(this.btnDodajProizvod_Click);
-            // 
-            // btnBrisiProizvod
-            // 
-            this.btnBrisiProizvod.Location = new System.Drawing.Point(230, 305);
-            this.btnBrisiProizvod.Name = "btnBrisiProizvod";
-            this.btnBrisiProizvod.Size = new System.Drawing.Size(90, 52);
-            this.btnBrisiProizvod.TabIndex = 18;
-            this.btnBrisiProizvod.Text = "Briši proizvod iz dokumenta";
-            this.btnBrisiProizvod.UseVisualStyleBackColor = true;
-            this.btnBrisiProizvod.Click += new System.EventHandler(this.btnBrisiProizvod_Click);
+            this.btnZatvori.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnZatvori.Location = new System.Drawing.Point(419, 21);
+            this.btnZatvori.Name = "btnZatvori";
+            this.btnZatvori.Size = new System.Drawing.Size(57, 27);
+            this.btnZatvori.TabIndex = 21;
+            this.btnZatvori.Text = "Zatvori";
+            this.btnZatvori.UseVisualStyleBackColor = true;
+            this.btnZatvori.Click += new System.EventHandler(this.btnZatvori_Click);
             // 
             // frmAzuriranjeDokumenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Yellow;
             this.ClientSize = new System.Drawing.Size(971, 606);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -392,5 +406,6 @@
         private System.Windows.Forms.DataGridView dgrProizvodi;
         private System.Windows.Forms.Button btnBrisiProizvod;
         private System.Windows.Forms.Button btnDodajProizvod;
+        private System.Windows.Forms.Button btnZatvori;
     }
 }

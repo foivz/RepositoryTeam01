@@ -32,6 +32,7 @@
             this.btnPredatnica = new System.Windows.Forms.Button();
             this.btnIzdatnica = new System.Windows.Forms.Button();
             this.btnOtpremnica = new System.Windows.Forms.Button();
+            this.btnZatvori = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnPrimka
@@ -74,12 +75,23 @@
             this.btnOtpremnica.UseVisualStyleBackColor = true;
             this.btnOtpremnica.Click += new System.EventHandler(this.btnOtpremnica_Click);
             // 
+            // btnZatvori
+            // 
+            this.btnZatvori.Location = new System.Drawing.Point(241, 237);
+            this.btnZatvori.Name = "btnZatvori";
+            this.btnZatvori.Size = new System.Drawing.Size(75, 23);
+            this.btnZatvori.TabIndex = 4;
+            this.btnZatvori.Text = "Zatvori";
+            this.btnZatvori.UseVisualStyleBackColor = true;
+            this.btnZatvori.Click += new System.EventHandler(this.btnZatvori_Click);
+            // 
             // frmDokument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Yellow;
             this.ClientSize = new System.Drawing.Size(564, 395);
+            this.Controls.Add(this.btnZatvori);
             this.Controls.Add(this.btnOtpremnica);
             this.Controls.Add(this.btnIzdatnica);
             this.Controls.Add(this.btnPredatnica);
@@ -97,5 +109,6 @@
         private System.Windows.Forms.Button btnPredatnica;
         private System.Windows.Forms.Button btnIzdatnica;
         private System.Windows.Forms.Button btnOtpremnica;
+        private System.Windows.Forms.Button btnZatvori;
     }
 }

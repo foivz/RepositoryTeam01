@@ -145,6 +145,28 @@ namespace PI
 
         #endregion
 
+        #region osobe 
+
+        public static NpgsqlDataReader dohvatiOsobe()
+        {
+            string sql = "SELECT*FROM \"osoba\";";
+            return Baza.Instance.dohvati_osobe(sql);
+        }
+
+        public static void dodajOsobe(string ime, string prezime, string username, string lozinka, int telefon, string email)
+        {
+            string sql = string.Format("INSERT INTO \"osoba\"(ime, prezime, username, lozinka, telefon, email) VALUES"
+                + " ('{0}','{1}','{2}','{3}','{4}','{5}' )", ime, prezime, username, lozinka, telefon, email);
+            Baza.Instance.izvrsi_upit(sql);
+        }
+
+        public static void brisiOsobe(string id)
+        {
+            string sql = string.Format("DELETE FROM \"osoba\" WHERE \"id\"='{0}';", id);
+            Baza.Instance.izvrsi_upit(sql);
+        }
+        # endregion
+
         #region poslovniPartneri
 
         public static NpgsqlDataReader dohvatiPoslovnePartnere()
@@ -205,5 +227,17 @@ namespace PI
         }
          
         #endregion
+
+
+
+        internal static void dodajOsobe(string p1, string p2, string p3, string p4, string p5, string p6)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void dodajOsobe(string p1, string p2, string p3, string p4)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

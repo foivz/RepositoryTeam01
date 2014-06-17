@@ -82,10 +82,6 @@ namespace PI
             
         }
 
-        private void btnZatvori(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void btnDodajRepromaterijal_Click(object sender, EventArgs e)
         {
@@ -242,6 +238,11 @@ namespace PI
             {
 
             }
+        }
+
+        private void btnZatvori_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

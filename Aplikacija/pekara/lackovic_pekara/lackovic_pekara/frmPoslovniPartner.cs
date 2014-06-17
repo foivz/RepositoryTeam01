@@ -29,11 +29,6 @@ namespace PI
             dataGridView1.DataSource = dt;
         }
  
-        private void btnZatvori(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         string id = "";
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
@@ -60,7 +55,7 @@ namespace PI
             }
             else
             {
-                Upiti.dodajPoslovnePartnere(txtNaziv.Text, txtAdresa.Text, txtKontakt.Text, txtDodatno.Text);
+                Upiti.dodajOsobe(txtNaziv.Text, txtAdresa.Text, txtKontakt.Text, txtDodatno.Text);
                 MessageBox.Show("Uspješno unesen poslovni partner");
                 dohvatiPoslovnePartnere();
                 txtNaziv.Text = "";
@@ -93,6 +88,11 @@ namespace PI
         {
             Upiti.azurirajPoslovnePartnere(txtNaziv.Text, txtAdresa.Text, txtKontakt.Text, txtDodatno.Text, id);
             dohvatiPoslovnePartnere();
+        }
+
+        private void btnZatvori_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

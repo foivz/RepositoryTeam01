@@ -54,5 +54,10 @@ namespace PI
             NpgsqlCommand naredba = new NpgsqlCommand(sql, Konekcija);
             return naredba.ExecuteNonQuery();
         }
+
+        internal NpgsqlDataReader dohvati_osobe(string sql)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

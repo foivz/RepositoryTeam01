@@ -36,10 +36,6 @@ namespace PI
             azuriranjeDokumenta.ShowDialog();
         }
 
-        private void btnZatvori(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void frmDokument_Load(object sender, EventArgs e)
         {
@@ -50,6 +46,11 @@ namespace PI
         {
             frmAzuriranjeDokumenta azuriranjeDokumenta = new frmAzuriranjeDokumenta(3);
             azuriranjeDokumenta.ShowDialog();
+        }
+
+        private void btnZatvori_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

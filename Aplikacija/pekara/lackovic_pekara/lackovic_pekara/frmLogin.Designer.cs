@@ -33,13 +33,10 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.pekara_bazaDataSet = new PI.pekara_bazaDataSet();
             this.osobaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.osobaTableAdapter = new PI.pekara_bazaDataSetTableAdapters.osobaTableAdapter();
             this.lblgreska = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pekara_bazaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.osobaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,19 +65,12 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // pekara_bazaDataSet
-            // 
-            this.pekara_bazaDataSet.DataSetName = "pekara_bazaDataSet";
-            this.pekara_bazaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // osobaBindingSource
             // 
             this.osobaBindingSource.DataMember = "osoba";
-            this.osobaBindingSource.DataSource = this.pekara_bazaDataSet;
             // 
             // osobaTableAdapter
             // 
-            this.osobaTableAdapter.ClearBeforeFill = true;
             // 
             // lblgreska
             // 
@@ -133,7 +123,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            ((System.ComponentModel.ISupportInitialize)(this.pekara_bazaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.osobaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -145,9 +134,7 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
-        private pekara_bazaDataSet pekara_bazaDataSet;
         private System.Windows.Forms.BindingSource osobaBindingSource;
-        private pekara_bazaDataSetTableAdapters.osobaTableAdapter osobaTableAdapter;
         private System.Windows.Forms.Label lblgreska;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
