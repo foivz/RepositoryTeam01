@@ -16,7 +16,7 @@ namespace PI
         public frmOsoba()
         {
             InitializeComponent();
-           
+            dohvatiOsobe();
         }
 
         private void dohvatiOsobe()
@@ -76,18 +76,18 @@ namespace PI
 
         
         string id = "";
+
+        /// <summary>
+        /// Ova funkcija se poziva kada se odabere određeni redak unutar data grida,
+        /// Služi kako bi spremila ID odabrane osobe unutar varijable ID koja će se kasnije
+        /// koristiti prilikom brisanja
+        /// </summary>
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
                 int redak = dataGridView1.CurrentCell.RowIndex;
-                id = dataGridView1.Rows[redak].Cells[6].Value.ToString();
-                txtIme.Text = dataGridView1.Rows[redak].Cells[0].Value.ToString();
-                txtPrezime.Text = dataGridView1.Rows[redak].Cells[1].Value.ToString();
-                txtUserName.Text = dataGridView1.Rows[redak].Cells[2].Value.ToString();
-                txtLozinka.Text = dataGridView1.Rows[redak].Cells[3].Value.ToString();
-                txtBrojtelefona.Text = dataGridView1.Rows[redak].Cells[4].Value.ToString();
-                txtEmail.Text = dataGridView1.Rows[redak].Cells[5].Value.ToString();
+                id = dataGridView1.Rows[redak].Cells[0].Value.ToString();
             }
             catch
             {

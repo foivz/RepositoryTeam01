@@ -55,7 +55,7 @@ namespace PI
             }
             else
             {
-                Upiti.dodajOsobe(txtNaziv.Text, txtAdresa.Text, txtKontakt.Text, txtDodatno.Text);
+                Upiti.dodajPoslovnePartnere(txtNaziv.Text, txtAdresa.Text, txtKontakt.Text, txtDodatno.Text);
                 MessageBox.Show("Uspješno unesen poslovni partner");
                 dohvatiPoslovnePartnere();
                 txtNaziv.Text = "";

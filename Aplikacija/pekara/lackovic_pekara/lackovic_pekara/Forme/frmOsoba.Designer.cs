@@ -219,6 +219,7 @@
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.txtIme);
             this.Name = "frmOsoba";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmOsoba";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

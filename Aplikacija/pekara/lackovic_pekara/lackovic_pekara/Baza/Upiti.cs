@@ -61,6 +61,14 @@ namespace PI
             return Baza.Instance.dohvati_podatke(sql);
         }
 
+        public static NpgsqlDataReader dohvatiProizvodDokument()
+        {
+            string sql = "SELECT \"repromaterijalproizvod\".\"ID\", \"repromaterijalproizvod\".naziv, cijena, stanje, \"repromaterijalproizvod\".opis, mjera,"
+                          + "\"tipproizvoda\".naziv AS tip FROM tipproizvoda,repromaterijalproizvod WHERE tipproizvoda.\"ID\"=repromaterijalproizvod.\"tipproizvodaID\" "
+                          + " AND repromaterijalproizvod.\"tipproizvodaID\"<>0";
+            return Baza.Instance.dohvati_podatke(sql);
+        }
+
         public static void unesiProizvod(string naziv, float cijena, string opis, float stanje, string mjera, int tip)
         {
             string sql = string.Format("INSERT INTO repromaterijalproizvod(naziv,cijena,opis,stanje,mjera,\"tipproizvodaID\")"
@@ -150,10 +158,10 @@ namespace PI
         public static NpgsqlDataReader dohvatiOsobe()
         {
             string sql = "SELECT*FROM \"osoba\";";
-            return Baza.Instance.dohvati_osobe(sql);
+            return Baza.Instance.dohvati_podatke(sql);
         }
 
-        public static void dodajOsobe(string ime, string prezime, string username, string lozinka, int telefon, string email)
+        public static void dodajOsobe(string ime, string prezime, string username, string lozinka, string telefon, string email)
         {
             string sql = string.Format("INSERT INTO \"osoba\"(ime, prezime, username, lozinka, telefon, email) VALUES"
                 + " ('{0}','{1}','{2}','{3}','{4}','{5}' )", ime, prezime, username, lozinka, telefon, email);
@@ -162,7 +170,7 @@ namespace PI
 
         public static void brisiOsobe(string id)
         {
-            string sql = string.Format("DELETE FROM \"osoba\" WHERE \"id\"='{0}';", id);
+            string sql = string.Format("DELETE FROM \"osoba\" WHERE \"ID\"='{0}';", id);
             Baza.Instance.izvrsi_upit(sql);
         }
         # endregion
@@ -225,19 +233,56 @@ namespace PI
                  Baza.Instance.izvrsi_upit(sql);
              }
         }
-         
+
+        public static void azurirajRepromaterijalProizvod(string ID, string kolicina, string minusPlus)
+        {
+            string sql="";
+            if(minusPlus=="minus"){
+                sql=string.Format("UPDATE \"repromaterijalproizvod\" SET stanje=stanje-'{0}' WHERE \"ID\"='{1}'",kolicina,ID);
+            }
+            else{
+                sql = string.Format("UPDATE \"repromaterijalproizvod\" SET stanje=stanje+'{0}' WHERE \"ID\"='{1}'", kolicina, ID);
+            }
+            Baza.Instance.izvrsi_upit(sql);
+        }
+
+        public static void brisiDokument(string ID, int tip)
+        {
+            string sql=string.Format("SELECT \"repromaterijalproizvodID\", \"kolicina\" FROM \"stavka\" WHERE \"dokumentID\" = '{0}'",ID);
+            NpgsqlDataReader dr = Baza.Instance.dohvati_podatke(sql);
+            List<string> stavke = new List<string>();
+            List<string> kolicine = new List<string>();
+
+            while (dr.Read())
+            {
+                stavke.Add(dr[0].ToString());
+                kolicine.Add(dr[1].ToString());
+            }
+            
+            dr.Close();
+            dr.Dispose();
+
+            for (int i = 0; i < stavke.Count; i++)
+            {
+                //primka i predatnica
+                if (tip == 1 || tip == 2)
+                {
+                    sql = string.Format("UPDATE \"repromaterijalproizvod\" SET \"stanje\"=\"stanje\"-{0} WHERE \"ID\" ='{1}'",
+                       kolicine[1], stavke[0]);
+                    Baza.Instance.izvrsi_upit(sql);
+                }
+                else
+                {
+                    sql = string.Format("UPDATE \"repromaterijalproizvod\" SET stanje=stanje+{0} WHERE \"ID\" ='{1}'",
+                        kolicine[1], stavke[0]);
+                    Baza.Instance.izvrsi_upit(sql);
+                }
+            }
+
+            sql=string.Format("DELETE FROM dokument WHERE \"ID\" ='{0}'",ID);
+            Baza.Instance.izvrsi_upit(sql);
+        }
+
         #endregion
-
-
-
-        internal static void dodajOsobe(string p1, string p2, string p3, string p4, string p5, string p6)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal static void dodajOsobe(string p1, string p2, string p3, string p4)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

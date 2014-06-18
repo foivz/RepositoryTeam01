@@ -20,12 +20,51 @@ namespace PI
         {
             InitializeComponent();
             idDokumenta = id;
+            switch (id)
+            {
+                case 1: lblDokument.Text = "PRIMKA";
+                    lblStavka.Text = "REPROMATERIJALI";
+                    lblPopust.Visible = false;
+                    txtPopust.Text = "0";
+                    txtPopust.Visible = false;
+                    btnDodaj.Text = "DODAJ PRIMKU";
+                    break;
+                case 2:
+                    lblStavka.Text = "PROIZVODI";
+                    lblDokument.Text = "PREDATNICA";
+                    lblPopust.Visible = false;
+                    txtPopust.Text = "0";
+                    txtPopust.Visible = false;
+                    btnDodaj.Text = "DODAJ PREDATNICU";
+                    break;
+                case 3:
+                    lblStavka.Text = "REPROMATERIJALI";
+                    lblDokument.Text = "IZDATNICA";
+                    lblPopust.Visible = false;
+                    txtPopust.Text = "0";
+                    txtPopust.Visible = false;
+                    btnDodaj.Text = "DODAJ IZDATNICU";
+                    break;
+                case 4:
+                    lblStavka.Text = "PROIZVODI";
+                    lblDokument.Text = "OTPREMNICA";
+                    btnDodaj.Text = "DODAJ OTPREMNICU";
+                    break;
+            }
+
             dohvatiDokumente();
-            dohvatiRepromaterijal();
             dt.Columns.Add("ID");
             dt.Columns.Add("kolicina");
+            dt.Columns.Add("Stanje");
             dt.Columns.Add("popust");
+            
             dgrStavke.DataSource = dt;
+
+            if (id != 4)
+            {
+                dgrStavke.Columns[3].Visible = false;
+            }
+
             NpgsqlDataReader dr = Upiti.dohvatiPoslovnePartnere();
             while (dr.Read())
             {
@@ -40,7 +79,14 @@ namespace PI
             catch
             {
             }
-            dohvatiProizvode();
+            if (id == 2 || id == 4)
+            {
+                dohvatiProizvode();
+            }
+            else
+            {
+                dohvatiRepromaterijal();
+            }
         }
 
         private void dohvatiDokumente()
@@ -65,17 +111,35 @@ namespace PI
 
         private void dohvatiProizvode()
         {
-            NpgsqlDataReader dr = Upiti.dohvatiProizvod();
+            NpgsqlDataReader dr = Upiti.dohvatiProizvodDokument();
             DataTable dt = new DataTable();
             dt.Load(dr);
             dr.Close();
             dr.Dispose();
-            dgrProizvodi.DataSource = dt;
+            dgrRepromaterijali.DataSource = dt;
         }
 
         private void btnObrisi_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int seletirano = dgrPostojeci.CurrentCell.RowIndex;
+                Upiti.brisiDokument(dgrPostojeci.Rows[seletirano].Cells[5].Value.ToString(),idDokumenta);
+                dohvatiDokumente();
+                MessageBox.Show("Uspješno obrisan dokument!");
+                if (idDokumenta == 2 || idDokumenta == 4)
+                {
+                    dohvatiProizvode();
+                }
+                else
+                {
+                    dohvatiRepromaterijal();
+                }
+            }
+            catch (Exception ex)
+            {
 
+            }
         }
 
         private void btnIspis_Click(object sender, EventArgs e)
@@ -117,18 +181,39 @@ namespace PI
                         string staraKolicina = dgrStavke.Rows[indeks].Cells[1].Value.ToString();
                         int novaKolicina = int.Parse(txtKolicina.Text) + int.Parse(staraKolicina);
                         dgrStavke.Rows[indeks].Cells[1].Value = novaKolicina.ToString();
+                        staraKolicina = staraKolicina + novaKolicina;
+                        if (idDokumenta == 1 || idDokumenta == 2)
+                        {
+                            dgrStavke.Rows[indeks].Cells[2].Value = (int.Parse(dgrRepromaterijali.Rows[selektirani].Cells[3].Value.ToString()) + int.Parse(dgrStavke.Rows[indeks].Cells[1].Value.ToString())).ToString();
+                        }
+                        else
+                        {
+                            dgrStavke.Rows[indeks].Cells[2].Value = (int.Parse(dgrRepromaterijali.Rows[selektirani].Cells[3].Value.ToString()) - int.Parse(dgrStavke.Rows[indeks].Cells[1].Value.ToString())).ToString();
+                        }
                     }
                     else
                     {
                         dr["ID"] = id;
                         dr["kolicina"] = txtKolicina.Text;
                         dr["popust"] = txtPopust.Text;
+                        if (idDokumenta == 1 || idDokumenta == 2)
+                        {
+                            dr["stanje"] = (int.Parse(dgrRepromaterijali.Rows[selektirani].Cells[3].Value.ToString()) + int.Parse(txtKolicina.Text)).ToString();
+                        }
+                        else
+                        {
+                            dr["stanje"] = (int.Parse(dgrRepromaterijali.Rows[selektirani].Cells[3].Value.ToString()) - int.Parse(txtKolicina.Text)).ToString();
+                        }
                         dt.Rows.Add(dr);
                     }
+                    if (int.Parse(dgrStavke.Rows[indeks].Cells[2].Value.ToString()) <= 0)
+                    {
+                        MessageBox.Show("Stanje na skladištu vam je u minusu!");
+                    }
                 }
-                catch
+                catch(Exception ex)
                 {
-
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -171,60 +256,43 @@ namespace PI
                     repromaterijali.Add(dgrStavke.Rows[i].Cells[0].Value.ToString());
                 }
 
-                Upiti.dodajDokument(dateTimePicker1.Value.ToShortDateString(),txtOpis.Text,idDokumenta.ToString(),idPartnera,kolicine,popusti,repromaterijali);   
+                Upiti.dodajDokument(dateTimePicker1.Value.ToShortDateString(),txtOpis.Text,idDokumenta.ToString(),idPartnera,kolicine,popusti,repromaterijali);
+                for (int i = 0; i < dgrStavke.Rows.Count - 1; i++)
+                {
+                    switch (idDokumenta)
+                    {
+                        case 1:
+                                Upiti.azurirajRepromaterijalProizvod(dgrStavke.Rows[i].Cells[0].Value.ToString(),
+                                    dgrStavke.Rows[i].Cells[1].Value.ToString(), "plus");
+                            break;
+                        case 2:
+                            Upiti.azurirajRepromaterijalProizvod(dgrStavke.Rows[i].Cells[0].Value.ToString(),
+                                dgrStavke.Rows[i].Cells[1].Value.ToString(), "plus");
+                            break;
+                        case 3:
+                            Upiti.azurirajRepromaterijalProizvod(dgrStavke.Rows[i].Cells[0].Value.ToString(),
+                                dgrStavke.Rows[i].Cells[1].Value.ToString(), "minus");
+                            break;
+                        case 4:
+                            Upiti.azurirajRepromaterijalProizvod(dgrStavke.Rows[i].Cells[0].Value.ToString(),
+                                dgrStavke.Rows[i].Cells[1].Value.ToString(), "minus");
+                            break;
+                    }
+                }
+                dt.Rows.Clear();
+                dohvatiDokumente();
+                if (idDokumenta == 2 || idDokumenta == 4)
+                {
+                    dohvatiProizvode();
+                }
+                else
+                {
+                    dohvatiRepromaterijal();
+                }
             }
             else
             {
 
-            }
-        }
-
-        private void btnDodajProizvod_Click(object sender, EventArgs e)
-        {
-            if (txtKolicina.Text == "")
-            {
-                MessageBox.Show("Niste unijeli kolicinu!");
-            }
-            else if (txtPopust.Text == "")
-            {
-                MessageBox.Show("Niste unijeli popust!");
-            }
-            else
-            {
-                DataRow dr = dt.NewRow();
-                try
-                {
-                    int selektirani = dgrProizvodi.CurrentCell.RowIndex;
-                    string id = dgrProizvodi.Rows[selektirani].Cells[0].Value.ToString();
-
-                    bool duplikat = false;
-                    int indeks = 0;
-                    for (int i = 0; i < dgrStavke.Rows.Count - 1; i++)
-                    {
-                        if (dgrStavke.Rows[i].Cells[0].Value.ToString() == id)
-                        {
-                            duplikat = true;
-                            indeks = i;
-                        }
-                    }
-                    if (duplikat)
-                    {
-                        string staraKolicina = dgrStavke.Rows[indeks].Cells[1].Value.ToString();
-                        int novaKolicina = int.Parse(txtKolicina.Text) + int.Parse(staraKolicina);
-                        dgrStavke.Rows[indeks].Cells[1].Value = novaKolicina.ToString();
-                    }
-                    else
-                    {
-                        dr["ID"] = id;
-                        dr["kolicina"] = txtKolicina.Text;
-                        dr["popust"] = txtPopust.Text;
-                        dt.Rows.Add(dr);
-                    }
-                }
-                catch
-                {
-
-                }
             }
         }
 
