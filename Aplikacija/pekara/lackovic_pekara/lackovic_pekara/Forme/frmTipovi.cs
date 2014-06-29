@@ -34,8 +34,6 @@ namespace PI
         /// <summary>
         /// Aktivacija btn Dodaj
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             if (txtNaziv.Text == "")
@@ -51,11 +49,10 @@ namespace PI
                 txtNaziv.Text = "";
             }
         }
+
         /// <summary>
         /// Aktivacija btnUredi
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnUredi_Click(object sender, EventArgs e)
         {
             if (txtNaziv.Text == "")
@@ -70,11 +67,10 @@ namespace PI
                 dohvatiTipoveProizvoda();
             }
         }
+
         /// <summary>
         /// Aktivacija btnObrisi
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// </summary>>
         private void btnObrisi_Click(object sender, EventArgs e)
         {
             DialogResult d = MessageBox.Show("Jeste li sigurni da želite izbrisati tip proizvoda?", "Brisanje tipa proizvoda", MessageBoxButtons.YesNo);
@@ -97,8 +93,6 @@ namespace PI
         /// <summary>
         /// dataGridView se puni podacima
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -114,6 +108,9 @@ namespace PI
             }
         }
 
+        /// <summary>
+        /// zatvaranje forme
+        /// </summary>
         private void btnZatvori_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -15,6 +15,9 @@ namespace PI
     {
         string id = "";
 
+        /// <summary>
+        /// dohvaćanje proizvoda iz baze podataka
+        /// </summary>
         public frmProizvodi()
         {
             InitializeComponent();
@@ -22,6 +25,10 @@ namespace PI
             comboBox1.SelectedIndex = 0;
             dohvatiTipoveProizvoda();
         }
+
+        /// <summary>
+        /// dohvaćanje proizvoda i prikaz u datagrid
+        /// </summary>
         private void dohvatiProizvode()
         {
             NpgsqlDataReader dr = Upiti.dohvatiProizvod();
@@ -32,6 +39,9 @@ namespace PI
             dataGridView1.DataSource = dt;
         }
 
+        /// <summary>
+        /// dohvaćanje tipova proizvoda
+        /// </summary>
         private void dohvatiTipoveProizvoda()
         {
             NpgsqlDataReader dr = Upiti.dohvatiTipoveProizvoda();
@@ -51,6 +61,9 @@ namespace PI
             }
         }
 
+        /// <summary>
+        /// aktivacija btn dodaj
+        /// </summary>
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             if (txtNaziv.Text == "")
@@ -81,6 +94,9 @@ namespace PI
             }
         }
 
+        /// <summary>
+        /// aktivacija btn obriši
+        /// </summary>
         private void btnObrisi_Click(object sender, EventArgs e)
         {
             DialogResult d = MessageBox.Show("Jeste li sigurni da želite izbrisati  proizvod?", "Brisanje proizvoda", MessageBoxButtons.YesNo);
@@ -99,6 +115,9 @@ namespace PI
             }
         }
 
+        /// <summary>
+        /// aktivacija btn ažuriraj
+        /// </summary>
         private void btnAzuriraj_Click(object sender, EventArgs e)
         {
             if (txtNaziv.Text == "")
@@ -126,6 +145,9 @@ namespace PI
             }
         }
 
+        /// <summary>
+        /// zatvaranje forme
+        /// </summary>
         private void btnZatvori_Click(object sender, EventArgs e)
         {
             this.Close();

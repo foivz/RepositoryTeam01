@@ -47,6 +47,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Devart.Data, Version=5.0.973.0, Culture=neutral, PublicKeyToken=09af7300eec23701" />
+    <Reference Include="Devart.Data.PostgreSql, Version=7.3.181.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Mono.Security">
@@ -57,6 +59,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -68,6 +71,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="baza.cs">
+      <DependentUpon>baza.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="baza.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>baza.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Baza\Baza.cs" />
     <Compile Include="Baza\Statics.cs" />
     <Compile Include="Baza\Upiti.cs" />
@@ -192,9 +204,23 @@
     <EmbeddedResource Include="Forme\frmTipovi.resx">
       <DependentUpon>frmTipovi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\Izdatnica.rdlc" />
+    <EmbeddedResource Include="Forme\IzvjestajIzdatnice.resx">
+      <DependentUpon>IzvjestajIzdatnice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forme\IzvjestajOtpremnice.resx">
       <DependentUpon>IzvjestajOtpremnice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forme\IzvjestajPredatnice.resx">
+      <DependentUpon>IzvjestajPredatnice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\IzvjestajPrimke.resx">
+      <DependentUpon>IzvjestajPrimke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forme\Otpremnica.rdlc" />
+    <EmbeddedResource Include="Forme\Predatnica.rdlc" />
+    <EmbeddedResource Include="Forme\Primka.rdlc" />
+    <EmbeddedResource Include="Forme\Report1.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -205,6 +231,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="baza.xsc">
+      <DependentUpon>baza.xsd</DependentUpon>
+    </None>
+    <None Include="baza.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>baza.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="baza.xss">
+      <DependentUpon>baza.xsd</DependentUpon>
+    </None>
     <None Include="Pekara.xsc">
       <DependentUpon>Pekara.xsd</DependentUpon>
     </None>

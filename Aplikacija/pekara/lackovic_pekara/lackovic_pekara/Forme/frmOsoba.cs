@@ -19,6 +19,9 @@ namespace PI
             dohvatiOsobe();
         }
 
+        /// <summary>
+        /// dohvaćanje osoba iz baze podataka
+        /// </summary>
         private void dohvatiOsobe()
         {
             NpgsqlDataReader dr = Upiti.dohvatiOsobe();
@@ -29,12 +32,17 @@ namespace PI
             dataGridView1.DataSource = dt;
         }
 
-
+        /// <summary>
+        /// zatvaranje forme
+        /// </summary>
         private void btnZatvori_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// dodavanje nove osobe u bazu podataka
+        /// </summary>
         private void btnDodajOsobu_Click(object sender, EventArgs e)
         {
             if (txtIme.Text == "" & txtPrezime.Text == "")
@@ -55,6 +63,9 @@ namespace PI
             }
         }
 
+        /// <summary>
+        /// brisanje osobe iz baze podataka
+        /// </summary>
         private void btnIzbrisi_Click(object sender, EventArgs e)
         {
             DialogResult d = MessageBox.Show("Jeste li sigurni da želite izbrisati osobu?",

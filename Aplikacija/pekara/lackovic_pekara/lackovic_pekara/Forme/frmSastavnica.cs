@@ -11,13 +11,17 @@ using Npgsql;
 namespace PI
 {
     public partial class frmSastavnica : Form
-    {
+    {   
         public frmSastavnica()
         {
             InitializeComponent();
             cmbMjera.SelectedIndex = 0;
             dohvatiProizvode();
         }
+
+        /// <summary>
+        /// dohvaćaju se sve sastavnice i učitavaju u datagrid
+        /// </summary>
         private void dohvatiProizvode()
         {
             NpgsqlDataReader dr = Upiti.dohvatiProizvod();
@@ -27,6 +31,7 @@ namespace PI
             dr.Dispose();
             dgrProizvodi.DataSource = dt;
         }
+
 
         private void dgrProizvodi_SelectionChanged(object sender, EventArgs e)
         {
@@ -53,6 +58,10 @@ namespace PI
             }
         }
 
+
+        /// <summary>
+        /// aktivacija btn obriši
+        /// </summary>
         private void btnObrisi_Click(object sender, EventArgs e)
         {
             DialogResult d = MessageBox.Show("Jeste li sigurni da želite izbrisati sastavnicu ovog proizvoda?", "Brisanje sastavnice proizvoda", MessageBoxButtons.YesNo);
@@ -79,6 +88,9 @@ namespace PI
             }
         }
 
+        /// <summary>
+        /// aktivacija btn dodaj
+        /// </summary>
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             if (txtKolicinaDodaj.Text == "")
@@ -94,6 +106,10 @@ namespace PI
             }
         }
 
+
+        /// <summary>
+        /// zatvaranje forme
+        /// </summary>
         private void btnZatvori_Click(object sender, EventArgs e)
         {
             this.Close();

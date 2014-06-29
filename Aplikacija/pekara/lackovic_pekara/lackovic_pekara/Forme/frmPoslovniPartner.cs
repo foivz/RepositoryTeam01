@@ -19,6 +19,9 @@ namespace PI
             dohvatiPoslovnePartnere();
         }
 
+        /// <summary>
+        /// dohvaćanje poslovnih partnera u datagrid
+        /// </summary>
         private void dohvatiPoslovnePartnere()
         {
             NpgsqlDataReader dr = Upiti.dohvatiPoslovnePartnere();
@@ -47,6 +50,9 @@ namespace PI
             }
         }
 
+        /// <summary>
+        /// aktivacija btn dodaj
+        /// </summary>
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             if (txtNaziv.Text == "")
@@ -65,6 +71,9 @@ namespace PI
             }
         }
 
+        /// <summary>
+        /// aktivacija btn obriši
+        /// </summary>
         private void btnObrisi_Click(object sender, EventArgs e)
         {
             DialogResult d = MessageBox.Show("Jeste li sigurni da želite izbrisati poslovnog partnera?",
@@ -84,12 +93,18 @@ namespace PI
             }
         }
 
+        /// <summary>
+        /// aktivacija  btn ažuriraj
+        /// </summary>
         private void btnAzuriraj_Click(object sender, EventArgs e)
         {
             Upiti.azurirajPoslovnePartnere(txtNaziv.Text, txtAdresa.Text, txtKontakt.Text, txtDodatno.Text, id);
             dohvatiPoslovnePartnere();
         }
 
+        /// <summary>
+        /// zatvaranje forme
+        /// </summary>
         private void btnZatvori_Click(object sender, EventArgs e)
         {
             this.Close();

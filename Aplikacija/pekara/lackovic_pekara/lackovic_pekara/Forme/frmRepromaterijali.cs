@@ -21,6 +21,9 @@ namespace PI
             dohvatiRepromaterijal();
         }
 
+        /// <summary>
+        /// dohvaćanje repromaterijala i ispis u datagrid
+        /// </summary>
         private void dohvatiRepromaterijal()
         {
             NpgsqlDataReader dr = Upiti.dohvatiRepromaterijal();
@@ -31,6 +34,10 @@ namespace PI
             dataGridView1.DataSource = dt;
         }
 
+        /// <summary>
+        /// aktivacija btn dodaj, prvo se validira upis, ako je upis validan, onda
+        /// unesi repromaterijal u bazu
+        /// </summary>
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             if (txtNaziv.Text == "")
@@ -49,7 +56,12 @@ namespace PI
                 txtStanje.Text = "0";
             }
         }
+
         string id = "";
+
+        /// <summary>
+        /// aktivacija btn obriši
+        /// </summary>
         private void btnObrisi_Click(object sender, EventArgs e)
         {
             DialogResult d = MessageBox.Show("Jeste li sigurni da želite izbrisati repromaterijal?", "Brisanje repromaterijala", MessageBoxButtons.YesNo);
@@ -71,8 +83,6 @@ namespace PI
         /// <summary>
         /// Aktivacija btnAzuriraj
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnAzuriraj_Click(object sender, EventArgs e)
         {
             if (txtNaziv.Text == "")
@@ -90,15 +100,18 @@ namespace PI
             }
         }
 
+
+        /// <summary>
+        /// zatvaranje forme
+        /// </summary>
         private void btnZatvori_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
         /// <summary>
         /// dataGridView se puni podacima iz baze
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             try

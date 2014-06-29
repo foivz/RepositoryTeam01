@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using PI.Forme;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,16 @@ namespace PI
 {
     public partial class frmAzuriranjeDokumenta : Form
     {
-        int idDokumenta;
+        int idDokumenta=0;
         DataTable dt = new DataTable();
-
+        
+        /// <summary>
+        /// Kao parametar dobivamo id dokumenta kojeg zelimo azurirati, odnosno
+        /// o kojem zelimo prikazati podatke. Ovisno o kojem se id radi, prikazuju 
+        /// se u određenim labelama i text boxevima o kojem se dokumentu radi.
+        /// 
+        /// Zatim se dohvaćaju dokumenti tog tipa, poslovni partneri i repromaterijali
+        /// </summary>
         public frmAzuriranjeDokumenta(int id)
         {
             InitializeComponent();
@@ -88,7 +96,9 @@ namespace PI
                 dohvatiRepromaterijal();
             }
         }
-
+        /// <summary>
+        /// dohvaćanje dokumenata iz baze podataka
+        /// </summary>
         private void dohvatiDokumente()
         {
             NpgsqlDataReader dr = Upiti.dohvatiDokumente(idDokumenta.ToString());
@@ -98,7 +108,9 @@ namespace PI
             dr.Dispose();
             dgrPostojeci.DataSource = dt;
         }
-
+        /// <summary>
+        /// dohvaćanje repromaterijala iz baze podataka
+        /// </summary>
         private void dohvatiRepromaterijal()
         {
             NpgsqlDataReader dr = Upiti.dohvatiRepromaterijal();
@@ -109,6 +121,9 @@ namespace PI
             dgrRepromaterijali.DataSource = dt;
         }
 
+        /// <summary>
+        /// dohvaćanje proizvoda iz baze podataka
+        /// </summary>
         private void dohvatiProizvode()
         {
             NpgsqlDataReader dr = Upiti.dohvatiProizvodDokument();
@@ -119,6 +134,9 @@ namespace PI
             dgrRepromaterijali.DataSource = dt;
         }
 
+        /// <summary>
+        /// trajno brisanje odabranog dokumenta iz baze podataka
+        /// </summary>
         private void btnObrisi_Click(object sender, EventArgs e)
         {
             try
@@ -144,10 +162,39 @@ namespace PI
 
         private void btnIspis_Click(object sender, EventArgs e)
         {
-            
+            int selektirani = dgrPostojeci.CurrentCell.RowIndex;
+            int idposlovnogPartnera = int.Parse(dgrPostojeci.Rows[selektirani].Cells[3].Value.ToString());
+            int dokument = int.Parse(dgrPostojeci.Rows[selektirani].Cells[5].Value.ToString());
+            if (idDokumenta == 1)
+            {
+                IzvjestajPrimke izvjestajPrimke = new IzvjestajPrimke(idposlovnogPartnera, dokument);
+                izvjestajPrimke.ShowDialog();
+            }
+            else if (idDokumenta == 2)
+            {
+                IzvjestajPredatnice izvjestajPredatnice = new IzvjestajPredatnice(idposlovnogPartnera, dokument);
+                izvjestajPredatnice.ShowDialog();
+            }
+            else if (idDokumenta == 3)
+            {
+                IzvjestajIzdatnice izvjestajIzdatnice = new IzvjestajIzdatnice(idposlovnogPartnera, dokument);
+                izvjestajIzdatnice.ShowDialog();
+            }
+            else if (idDokumenta == 4)
+            {
+                IzvjestajOtpremnice izvjestajOtpremnice = new IzvjestajOtpremnice(idposlovnogPartnera, dokument);
+                izvjestajOtpremnice.ShowDialog();
+            }
+
         }
 
-
+        /// <summary>
+        /// dodavanje repromaterijala u dokument
+        /// 
+        /// Uzmemo repromaterijal iz datagrida (koji sadrzi popis svih repromaterijala)
+        /// i dodamo taj repromaterijal u datagrid koji sadrzi repromaterijale za novi dokument.
+        /// 
+        /// </summary>
         private void btnDodajRepromaterijal_Click(object sender, EventArgs e)
         {
             if (txtKolicina.Text == "")
@@ -218,6 +265,10 @@ namespace PI
             }
         }
 
+
+        /// <summary>
+        /// brisanje repromaterijala iz dokumenta
+        /// </summary>
         private void btnBrisiRepromaterijal_Click(object sender, EventArgs e)
         {
             try
@@ -231,6 +282,14 @@ namespace PI
             }
         }
 
+        /// <summary>
+        /// dodavanje novo kreiranog dokumenta
+        /// 
+        /// Prvo provjerimo validaciju unesenih podataka,
+        /// Zatim pripremimo sve podatke za uspjesno izvrsavanje sql upita
+        /// (dodamo sve upisane repromaterijale/proizvode u listu i proslijedimo sve
+        /// podatke prema Bazi.
+        /// </summary>
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             DialogResult d = MessageBox.Show("Jeste li sigurni da želite upisati ovaj dokument, time se mijenja stanje robe na skladištu",
@@ -296,6 +355,9 @@ namespace PI
             }
         }
 
+        /// <summary>
+        /// brisanje selektiranog proizvoda
+        /// </summary>
         private void btnBrisiProizvod_Click(object sender, EventArgs e)
         {
             try
@@ -309,6 +371,9 @@ namespace PI
             }
         }
 
+        /// <summary>
+        /// zatvaranje forme
+        /// </summary>
         private void btnZatvori_Click(object sender, EventArgs e)
         {
             this.Close();

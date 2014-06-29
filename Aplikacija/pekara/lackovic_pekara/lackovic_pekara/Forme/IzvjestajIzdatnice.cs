@@ -12,9 +12,20 @@ namespace PI.Forme
 {
     public partial class IzvjestajIzdatnice : Form
     {
-        public IzvjestajIzdatnice()
+        public IzvjestajIzdatnice(int idposlovnogPartnera, int idDokumenta)
         {
             InitializeComponent();
+            this.idDokumenta=idDokumenta;
+            this.idPoslovnogPartnera = idposlovnogPartnera;
+        }
+
+        int idDokumenta;
+        int idPoslovnogPartnera;
+
+        private void IzvjestajIzdatnice_Load(object sender, EventArgs e)
+        {
+            this.poslovnipartnerTableAdapter.Fill(this.baza.poslovnipartner, idPoslovnogPartnera);
+            this.reportViewer1.RefreshReport();
         }
     }
 }

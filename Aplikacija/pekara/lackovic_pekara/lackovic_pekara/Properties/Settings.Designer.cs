@@ -33,5 +33,16 @@ namespace PI.Properties {
                 return ((string)(this["pekara_bazaConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("User Id=postgres;Password=postgres;Host=localhost;Database=postgres;Persist Secur" +
+            "ity Info=True;Initial Schema=public")]
+        public string postgresConnectionString {
+            get {
+                return ((string)(this["postgresConnectionString"]));
+            }
+        }
     }
 }

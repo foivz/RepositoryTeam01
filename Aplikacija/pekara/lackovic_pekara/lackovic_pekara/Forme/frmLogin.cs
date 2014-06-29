@@ -18,10 +18,8 @@ namespace PI
         }
 
         /// <summary>
-        /// 
+        /// ulogiravanje u sustav, provjera postojećeg korisnika
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
