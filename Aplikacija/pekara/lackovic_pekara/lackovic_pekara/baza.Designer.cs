@@ -1854,7 +1854,11 @@ namespace PI {
             
             private global::System.Data.DataColumn columnmjera;
             
-            private global::System.Data.DataColumn columntipproizvodaID;
+            private global::System.Data.DataColumn columnpopust;
+            
+            private global::System.Data.DataColumn columnkolicina;
+            
+            private global::System.Data.DataColumn columndokumentid;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1939,9 +1943,25 @@ namespace PI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn tipproizvodaIDColumn {
+            public global::System.Data.DataColumn popustColumn {
                 get {
-                    return this.columntipproizvodaID;
+                    return this.columnpopust;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn kolicinaColumn {
+                get {
+                    return this.columnkolicina;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn dokumentidColumn {
+                get {
+                    return this.columndokumentid;
                 }
             }
             
@@ -1982,7 +2002,7 @@ namespace PI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public repromaterijalproizvodRow AddrepromaterijalproizvodRow(int id, string naziv, string cijena, string opis, float stanje, string mjera, int tipproizvodaID) {
+            public repromaterijalproizvodRow AddrepromaterijalproizvodRow(int id, string naziv, string cijena, string opis, float stanje, string mjera, float popust, float kolicina, int dokumentid) {
                 repromaterijalproizvodRow rowrepromaterijalproizvodRow = ((repromaterijalproizvodRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -1991,7 +2011,9 @@ namespace PI {
                         opis,
                         stanje,
                         mjera,
-                        tipproizvodaID};
+                        popust,
+                        kolicina,
+                        dokumentid};
                 rowrepromaterijalproizvodRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowrepromaterijalproizvodRow);
                 return rowrepromaterijalproizvodRow;
@@ -2027,7 +2049,9 @@ namespace PI {
                 this.columnopis = base.Columns["opis"];
                 this.columnstanje = base.Columns["stanje"];
                 this.columnmjera = base.Columns["mjera"];
-                this.columntipproizvodaID = base.Columns["tipproizvodaID"];
+                this.columnpopust = base.Columns["popust"];
+                this.columnkolicina = base.Columns["kolicina"];
+                this.columndokumentid = base.Columns["dokumentid"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2045,8 +2069,12 @@ namespace PI {
                 base.Columns.Add(this.columnstanje);
                 this.columnmjera = new global::System.Data.DataColumn("mjera", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnmjera);
-                this.columntipproizvodaID = new global::System.Data.DataColumn("tipproizvodaID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntipproizvodaID);
+                this.columnpopust = new global::System.Data.DataColumn("popust", typeof(float), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpopust);
+                this.columnkolicina = new global::System.Data.DataColumn("kolicina", typeof(float), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnkolicina);
+                this.columndokumentid = new global::System.Data.DataColumn("dokumentid", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndokumentid);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AllowDBNull = false;
@@ -2056,6 +2084,9 @@ namespace PI {
                 this.columncijena.MaxLength = 10;
                 this.columnopis.MaxLength = 150;
                 this.columnmjera.MaxLength = 5;
+                this.columnpopust.ReadOnly = true;
+                this.columnkolicina.ReadOnly = true;
+                this.columndokumentid.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3974,18 +4005,49 @@ namespace PI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int tipproizvodaID {
+            public float popust {
                 get {
                     try {
-                        return ((int)(this[this.tablerepromaterijalproizvod.tipproizvodaIDColumn]));
+                        return ((float)(this[this.tablerepromaterijalproizvod.popustColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'tipproizvodaID\' in table \'repromaterijalproizvod\' is DBNull" +
-                                ".", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'popust\' in table \'repromaterijalproizvod\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablerepromaterijalproizvod.tipproizvodaIDColumn] = value;
+                    this[this.tablerepromaterijalproizvod.popustColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public float kolicina {
+                get {
+                    try {
+                        return ((float)(this[this.tablerepromaterijalproizvod.kolicinaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'kolicina\' in table \'repromaterijalproizvod\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerepromaterijalproizvod.kolicinaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int dokumentid {
+                get {
+                    try {
+                        return ((int)(this[this.tablerepromaterijalproizvod.dokumentidColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'dokumentid\' in table \'repromaterijalproizvod\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerepromaterijalproizvod.dokumentidColumn] = value;
                 }
             }
             
@@ -4051,14 +4113,38 @@ namespace PI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IstipproizvodaIDNull() {
-                return this.IsNull(this.tablerepromaterijalproizvod.tipproizvodaIDColumn);
+            public bool IspopustNull() {
+                return this.IsNull(this.tablerepromaterijalproizvod.popustColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SettipproizvodaIDNull() {
-                this[this.tablerepromaterijalproizvod.tipproizvodaIDColumn] = global::System.Convert.DBNull;
+            public void SetpopustNull() {
+                this[this.tablerepromaterijalproizvod.popustColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IskolicinaNull() {
+                return this.IsNull(this.tablerepromaterijalproizvod.kolicinaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetkolicinaNull() {
+                this[this.tablerepromaterijalproizvod.kolicinaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdokumentidNull() {
+                return this.IsNull(this.tablerepromaterijalproizvod.dokumentidColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdokumentidNull() {
+                this[this.tablerepromaterijalproizvod.dokumentidColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7310,324 +7396,11 @@ namespace PI.bazaTableAdapters {
             tableMapping.ColumnMappings.Add("opis", "opis");
             tableMapping.ColumnMappings.Add("stanje", "stanje");
             tableMapping.ColumnMappings.Add("mjera", "mjera");
-            tableMapping.ColumnMappings.Add("tipproizvodaID", "tipproizvodaID");
+            tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("popust", "popust");
+            tableMapping.ColumnMappings.Add("kolicina", "kolicina");
+            tableMapping.ColumnMappings.Add("dokumentid", "dokumentid");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::Devart.Data.PostgreSql.PgSqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""public"".""repromaterijalproizvod"" WHERE ((""ID"" = :Original_ID) AND ((:IsNull_naziv = 1 AND ""naziv"" IS NULL) OR (""naziv"" = :Original_naziv)) AND ((:IsNull_cijena = 1 AND ""cijena"" IS NULL) OR (""cijena"" = :Original_cijena)) AND ((:IsNull_opis = 1 AND ""opis"" IS NULL) OR (""opis"" = :Original_opis)) AND ((:IsNull_stanje = 1 AND ""stanje"" IS NULL) OR (""stanje"" = :Original_stanje)) AND ((:IsNull_mjera = 1 AND ""mjera"" IS NULL) OR (""mjera"" = :Original_mjera)) AND ((:IsNull_tipproizvodaID = 1 AND ""tipproizvodaID"" IS NULL) OR (""tipproizvodaID"" = :Original_tipproizvodaID)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::Devart.Data.PostgreSql.PgSqlParameter param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_ID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "ID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "IsNull_naziv";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "naziv";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_naziv";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "naziv";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "IsNull_cijena";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "cijena";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_cijena";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "cijena";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "IsNull_opis";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "opis";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_opis";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "opis";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "IsNull_stanje";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "stanje";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_stanje";
-            param.DbType = global::System.Data.DbType.Single;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Real;
-            param.IsNullable = true;
-            param.SourceColumn = "stanje";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "IsNull_mjera";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "mjera";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_mjera";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "mjera";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "IsNull_tipproizvodaID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "tipproizvodaID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_tipproizvodaID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "tipproizvodaID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::Devart.Data.PostgreSql.PgSqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"public\".\"repromaterijalproizvod\" (\"ID\", \"naziv\", \"cijena\", \"opis\", \"" +
-                "stanje\", \"mjera\", \"tipproizvodaID\") VALUES (:ID, :naziv, :cijena, :opis, :stanje" +
-                ", :mjera, :tipproizvodaID)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "ID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "ID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "naziv";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "naziv";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "cijena";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "cijena";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "opis";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "opis";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "stanje";
-            param.DbType = global::System.Data.DbType.Single;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Real;
-            param.IsNullable = true;
-            param.SourceColumn = "stanje";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "mjera";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "mjera";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "tipproizvodaID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "tipproizvodaID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::Devart.Data.PostgreSql.PgSqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE ""public"".""repromaterijalproizvod"" SET ""ID"" = :ID, ""naziv"" = :naziv, ""cijena"" = :cijena, ""opis"" = :opis, ""stanje"" = :stanje, ""mjera"" = :mjera, ""tipproizvodaID"" = :tipproizvodaID WHERE ((""ID"" = :Original_ID) AND ((:IsNull_naziv = 1 AND ""naziv"" IS NULL) OR (""naziv"" = :Original_naziv)) AND ((:IsNull_cijena = 1 AND ""cijena"" IS NULL) OR (""cijena"" = :Original_cijena)) AND ((:IsNull_opis = 1 AND ""opis"" IS NULL) OR (""opis"" = :Original_opis)) AND ((:IsNull_stanje = 1 AND ""stanje"" IS NULL) OR (""stanje"" = :Original_stanje)) AND ((:IsNull_mjera = 1 AND ""mjera"" IS NULL) OR (""mjera"" = :Original_mjera)) AND ((:IsNull_tipproizvodaID = 1 AND ""tipproizvodaID"" IS NULL) OR (""tipproizvodaID"" = :Original_tipproizvodaID)))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "ID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "ID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "naziv";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "naziv";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "cijena";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "cijena";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "opis";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "opis";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "stanje";
-            param.DbType = global::System.Data.DbType.Single;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Real;
-            param.IsNullable = true;
-            param.SourceColumn = "stanje";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "mjera";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "mjera";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "tipproizvodaID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "tipproizvodaID";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_ID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "ID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "IsNull_naziv";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "naziv";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_naziv";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "naziv";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "IsNull_cijena";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "cijena";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_cijena";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "cijena";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "IsNull_opis";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "opis";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_opis";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "opis";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "IsNull_stanje";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "stanje";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_stanje";
-            param.DbType = global::System.Data.DbType.Single;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Real;
-            param.IsNullable = true;
-            param.SourceColumn = "stanje";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "IsNull_mjera";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "mjera";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_mjera";
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "mjera";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "IsNull_tipproizvodaID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "tipproizvodaID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
-            param.ParameterName = "Original_tipproizvodaID";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
-            param.IsNullable = true;
-            param.SourceColumn = "tipproizvodaID";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7643,9 +7416,20 @@ namespace PI.bazaTableAdapters {
             this._commandCollection = new global::Devart.Data.PostgreSql.PgSqlCommand[3];
             this._commandCollection[0] = new global::Devart.Data.PostgreSql.PgSqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"ID\", naziv, cijena, opis, stanje, mjera, \"tipproizvodaID\" FROM \"public\".r" +
-                "epromaterijalproizvod";
+            this._commandCollection[0].CommandText = @"SELECT        repromaterijalproizvod.id, repromaterijalproizvod.naziv, repromaterijalproizvod.cijena, repromaterijalproizvod.opis, repromaterijalproizvod.stanje, repromaterijalproizvod.mjera, stavka.popust, stavka.kolicina, 
+                         stavka.dokumentid
+FROM            repromaterijalproizvod INNER JOIN
+                         stavka ON repromaterijalproizvod.id = stavka.repromaterijalproizvodid
+WHERE        (stavka.dokumentid = :PARAM1)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            global::Devart.Data.PostgreSql.PgSqlParameter param = new global::Devart.Data.PostgreSql.PgSqlParameter();
+            param.ParameterName = "PARAM1";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
+            param.Size = 2147483647;
+            param.IsNullable = true;
+            param.SourceColumn = "dokumentid";
+            this._commandCollection[0].Parameters.Add(param);
             this._commandCollection[1] = new global::Devart.Data.PostgreSql.PgSqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"SELECT        repromaterijalproizvod.naziv, repromaterijalproizvod.cijena, repromaterijalproizvod.opis, repromaterijalproizvod.stanje, repromaterijalproizvod.mjera, stavka.popust, stavka.kolicina, stavka.dokumentid, 
@@ -7654,7 +7438,7 @@ FROM            repromaterijalproizvod INNER JOIN
                          stavka ON repromaterijalproizvod.id = stavka.repromaterijalproizvodid
 WHERE        (stavka.dokumentid = :PARAM1)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            global::Devart.Data.PostgreSql.PgSqlParameter param = new global::Devart.Data.PostgreSql.PgSqlParameter();
+            param = new global::Devart.Data.PostgreSql.PgSqlParameter();
             param.ParameterName = "PARAM1";
             param.DbType = global::System.Data.DbType.Int32;
             param.PgSqlType = global::Devart.Data.PostgreSql.PgSqlType.Int;
@@ -7681,8 +7465,9 @@ WHERE        (stavka.dokumentid = :PARAM1)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(baza.repromaterijalproizvodDataTable dataTable) {
+        public virtual int Fill(baza.repromaterijalproizvodDataTable dataTable, int PARAM1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PARAM1));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -7694,8 +7479,9 @@ WHERE        (stavka.dokumentid = :PARAM1)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual baza.repromaterijalproizvodDataTable GetData() {
+        public virtual baza.repromaterijalproizvodDataTable GetData(int PARAM1) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PARAM1));
             baza.repromaterijalproizvodDataTable dataTable = new baza.repromaterijalproizvodDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -7705,9 +7491,14 @@ WHERE        (stavka.dokumentid = :PARAM1)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(baza.repromaterijalproizvodDataTable dataTable, int PARAM1) {
+        public virtual int FillBy(baza.repromaterijalproizvodDataTable dataTable, global::System.Nullable<int> PARAM1) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PARAM1));
+            if ((PARAM1.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PARAM1.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -7719,9 +7510,14 @@ WHERE        (stavka.dokumentid = :PARAM1)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual baza.repromaterijalproizvodDataTable GetDataBy(int PARAM1) {
+        public virtual baza.repromaterijalproizvodDataTable GetDataBy(global::System.Nullable<int> PARAM1) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PARAM1));
+            if ((PARAM1.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PARAM1.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
             baza.repromaterijalproizvodDataTable dataTable = new baza.repromaterijalproizvodDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -7751,218 +7547,6 @@ WHERE        (stavka.dokumentid = :PARAM1)";
             baza.repromaterijalproizvodDataTable dataTable = new baza.repromaterijalproizvodDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(baza.repromaterijalproizvodDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(baza dataSet) {
-            return this.Adapter.Update(dataSet, "repromaterijalproizvod");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_naziv, string Original_cijena, string Original_opis, float Original_stanje, string Original_mjera, int Original_tipproizvodaID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            if ((Original_naziv == null)) {
-                throw new global::System.ArgumentNullException("Original_naziv");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_naziv));
-            }
-            if ((Original_cijena == null)) {
-                throw new global::System.ArgumentNullException("Original_cijena");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_cijena));
-            }
-            if ((Original_opis == null)) {
-                throw new global::System.ArgumentNullException("Original_opis");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_opis));
-            }
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[8].Value = ((float)(Original_stanje));
-            if ((Original_mjera == null)) {
-                throw new global::System.ArgumentNullException("Original_mjera");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_mjera));
-            }
-            this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_tipproizvodaID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ID, string naziv, string cijena, string opis, float stanje, string mjera, int tipproizvodaID) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID));
-            if ((naziv == null)) {
-                throw new global::System.ArgumentNullException("naziv");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(naziv));
-            }
-            if ((cijena == null)) {
-                throw new global::System.ArgumentNullException("cijena");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(cijena));
-            }
-            if ((opis == null)) {
-                throw new global::System.ArgumentNullException("opis");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(opis));
-            }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((float)(stanje));
-            if ((mjera == null)) {
-                throw new global::System.ArgumentNullException("mjera");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(mjera));
-            }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(tipproizvodaID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int ID, string naziv, string cijena, string opis, float stanje, string mjera, int tipproizvodaID, int Original_ID, string Original_naziv, string Original_cijena, string Original_opis, float Original_stanje, string Original_mjera, int Original_tipproizvodaID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID));
-            if ((naziv == null)) {
-                throw new global::System.ArgumentNullException("naziv");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(naziv));
-            }
-            if ((cijena == null)) {
-                throw new global::System.ArgumentNullException("cijena");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(cijena));
-            }
-            if ((opis == null)) {
-                throw new global::System.ArgumentNullException("opis");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(opis));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((float)(stanje));
-            if ((mjera == null)) {
-                throw new global::System.ArgumentNullException("mjera");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(mjera));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(tipproizvodaID));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_ID));
-            if ((Original_naziv == null)) {
-                throw new global::System.ArgumentNullException("Original_naziv");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_naziv));
-            }
-            if ((Original_cijena == null)) {
-                throw new global::System.ArgumentNullException("Original_cijena");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_cijena));
-            }
-            if ((Original_opis == null)) {
-                throw new global::System.ArgumentNullException("Original_opis");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_opis));
-            }
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((float)(Original_stanje));
-            if ((Original_mjera == null)) {
-                throw new global::System.ArgumentNullException("Original_mjera");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_mjera));
-            }
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_tipproizvodaID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -8763,8 +8347,6 @@ WHERE        (stavka.dokumentid = :PARAM1)";
         
         private poslovnipartnerTableAdapter _poslovnipartnerTableAdapter;
         
-        private repromaterijalproizvodTableAdapter _repromaterijalproizvodTableAdapter;
-        
         private sastavnicaTableAdapter _sastavnicaTableAdapter;
         
         private stavkaTableAdapter _stavkaTableAdapter;
@@ -8847,20 +8429,6 @@ WHERE        (stavka.dokumentid = :PARAM1)";
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public repromaterijalproizvodTableAdapter repromaterijalproizvodTableAdapter {
-            get {
-                return this._repromaterijalproizvodTableAdapter;
-            }
-            set {
-                this._repromaterijalproizvodTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public sastavnicaTableAdapter sastavnicaTableAdapter {
             get {
                 return this._sastavnicaTableAdapter;
@@ -8933,10 +8501,6 @@ WHERE        (stavka.dokumentid = :PARAM1)";
                             && (this._poslovnipartnerTableAdapter.Connection != null))) {
                     return this._poslovnipartnerTableAdapter.Connection;
                 }
-                if (((this._repromaterijalproizvodTableAdapter != null) 
-                            && (this._repromaterijalproizvodTableAdapter.Connection != null))) {
-                    return this._repromaterijalproizvodTableAdapter.Connection;
-                }
                 if (((this._sastavnicaTableAdapter != null) 
                             && (this._sastavnicaTableAdapter.Connection != null))) {
                     return this._sastavnicaTableAdapter.Connection;
@@ -8972,9 +8536,6 @@ WHERE        (stavka.dokumentid = :PARAM1)";
                     count = (count + 1);
                 }
                 if ((this._poslovnipartnerTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._repromaterijalproizvodTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._sastavnicaTableAdapter != null)) {
@@ -9030,15 +8591,6 @@ WHERE        (stavka.dokumentid = :PARAM1)";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._poslovnipartnerTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._repromaterijalproizvodTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.repromaterijalproizvod.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._repromaterijalproizvodTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -9111,14 +8663,6 @@ WHERE        (stavka.dokumentid = :PARAM1)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._repromaterijalproizvodTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.repromaterijalproizvod.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._repromaterijalproizvodTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._sastavnicaTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.sastavnica.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -9174,14 +8718,6 @@ WHERE        (stavka.dokumentid = :PARAM1)";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._sastavnicaTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._repromaterijalproizvodTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.repromaterijalproizvod.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._repromaterijalproizvodTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -9276,11 +8812,6 @@ WHERE        (stavka.dokumentid = :PARAM1)";
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._repromaterijalproizvodTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._repromaterijalproizvodTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._sastavnicaTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._sastavnicaTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -9362,15 +8893,6 @@ WHERE        (stavka.dokumentid = :PARAM1)";
                     if (this._poslovnipartnerTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._poslovnipartnerTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._poslovnipartnerTableAdapter.Adapter);
-                    }
-                }
-                if ((this._repromaterijalproizvodTableAdapter != null)) {
-                    revertConnections.Add(this._repromaterijalproizvodTableAdapter, this._repromaterijalproizvodTableAdapter.Connection);
-                    this._repromaterijalproizvodTableAdapter.Connection = ((global::Devart.Data.PostgreSql.PgSqlConnection)(workConnection));
-                    this._repromaterijalproizvodTableAdapter.Transaction = ((global::System.Data.Common.DbTransaction)(workTransaction));
-                    if (this._repromaterijalproizvodTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._repromaterijalproizvodTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._repromaterijalproizvodTableAdapter.Adapter);
                     }
                 }
                 if ((this._sastavnicaTableAdapter != null)) {
@@ -9473,10 +8995,6 @@ WHERE        (stavka.dokumentid = :PARAM1)";
                 if ((this._poslovnipartnerTableAdapter != null)) {
                     this._poslovnipartnerTableAdapter.Connection = ((global::Devart.Data.PostgreSql.PgSqlConnection)(revertConnections[this._poslovnipartnerTableAdapter]));
                     this._poslovnipartnerTableAdapter.Transaction = null;
-                }
-                if ((this._repromaterijalproizvodTableAdapter != null)) {
-                    this._repromaterijalproizvodTableAdapter.Connection = ((global::Devart.Data.PostgreSql.PgSqlConnection)(revertConnections[this._repromaterijalproizvodTableAdapter]));
-                    this._repromaterijalproizvodTableAdapter.Transaction = null;
                 }
                 if ((this._sastavnicaTableAdapter != null)) {
                     this._sastavnicaTableAdapter.Connection = ((global::Devart.Data.PostgreSql.PgSqlConnection)(revertConnections[this._sastavnicaTableAdapter]));

@@ -30,15 +30,26 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.poslovnipartnerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bazaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.baza = new PI.baza();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.poslovnipartnerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poslovnipartnerTableAdapter = new PI.bazaTableAdapters.poslovnipartnerTableAdapter();
+            this.poslovnipartnerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.repromaterijalproizvodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.repromaterijalproizvodTableAdapter = new PI.bazaTableAdapters.repromaterijalproizvodTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.poslovnipartnerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bazaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.baza)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.poslovnipartnerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.poslovnipartnerBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repromaterijalproizvodBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // poslovnipartnerBindingSource
+            // 
+            this.poslovnipartnerBindingSource.DataMember = "poslovnipartner";
+            this.poslovnipartnerBindingSource.DataSource = this.bazaBindingSource;
             // 
             // bazaBindingSource
             // 
@@ -54,34 +65,48 @@
             // 
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.poslovnipartnerBindingSource;
+            reportDataSource2.Name = "DataSet2";
+            reportDataSource2.Value = this.repromaterijalproizvodBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "PI.Forme.Predatnica.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(12, 12);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(777, 361);
+            this.reportViewer1.Size = new System.Drawing.Size(916, 572);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // poslovnipartnerBindingSource
-            // 
-            this.poslovnipartnerBindingSource.DataMember = "poslovnipartner";
-            this.poslovnipartnerBindingSource.DataSource = this.bazaBindingSource;
             // 
             // poslovnipartnerTableAdapter
             // 
             this.poslovnipartnerTableAdapter.ClearBeforeFill = true;
             // 
+            // poslovnipartnerBindingSource1
+            // 
+            this.poslovnipartnerBindingSource1.DataMember = "poslovnipartner";
+            this.poslovnipartnerBindingSource1.DataSource = this.bazaBindingSource;
+            // 
+            // repromaterijalproizvodBindingSource
+            // 
+            this.repromaterijalproizvodBindingSource.DataMember = "repromaterijalproizvod";
+            this.repromaterijalproizvodBindingSource.DataSource = this.bazaBindingSource;
+            // 
+            // repromaterijalproizvodTableAdapter
+            // 
+            this.repromaterijalproizvodTableAdapter.ClearBeforeFill = true;
+            // 
             // IzvjestajPredatnice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 385);
+            this.ClientSize = new System.Drawing.Size(940, 606);
             this.Controls.Add(this.reportViewer1);
             this.Name = "IzvjestajPredatnice";
             this.Text = "IzvjestajPredatnice";
             this.Load += new System.EventHandler(this.IzvjestajPredatnice_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.poslovnipartnerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bazaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.baza)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.poslovnipartnerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.poslovnipartnerBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repromaterijalproizvodBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -93,5 +118,8 @@
         private baza baza;
         private System.Windows.Forms.BindingSource poslovnipartnerBindingSource;
         private bazaTableAdapters.poslovnipartnerTableAdapter poslovnipartnerTableAdapter;
+        private System.Windows.Forms.BindingSource poslovnipartnerBindingSource1;
+        private System.Windows.Forms.BindingSource repromaterijalproizvodBindingSource;
+        private bazaTableAdapters.repromaterijalproizvodTableAdapter repromaterijalproizvodTableAdapter;
     }
 }

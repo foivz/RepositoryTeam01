@@ -60,7 +60,7 @@ namespace PI
         string id = "";
 
         /// <summary>
-        /// aktivacija btn obriši
+        /// aktivacija btn obriši, brisanje repromaterijala
         /// </summary>
         private void btnObrisi_Click(object sender, EventArgs e)
         {
@@ -81,7 +81,7 @@ namespace PI
         }
 
         /// <summary>
-        /// Aktivacija btnAzuriraj
+        /// Aktivacija btnAzuriraj, azuriranje repromaterijala
         /// </summary>
         private void btnAzuriraj_Click(object sender, EventArgs e)
         {
@@ -110,7 +110,7 @@ namespace PI
         }
 
         /// <summary>
-        /// dataGridView se puni podacima iz baze
+        /// Kada se promijeni selekcija odabranog retka u datagridu, pune se kontrole tim podacima
         /// </summary>
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {

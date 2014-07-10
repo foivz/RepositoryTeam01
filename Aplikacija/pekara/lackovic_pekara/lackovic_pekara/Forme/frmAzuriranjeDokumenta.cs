@@ -21,7 +21,6 @@ namespace PI
         /// Kao parametar dobivamo id dokumenta kojeg zelimo azurirati, odnosno
         /// o kojem zelimo prikazati podatke. Ovisno o kojem se id radi, prikazuju 
         /// se u određenim labelama i text boxevima o kojem se dokumentu radi.
-        /// 
         /// Zatim se dohvaćaju dokumenti tog tipa, poslovni partneri i repromaterijali
         /// </summary>
         public frmAzuriranjeDokumenta(int id)
@@ -139,9 +138,9 @@ namespace PI
         /// </summary>
         private void btnObrisi_Click(object sender, EventArgs e)
         {
+            int seletirano = dgrPostojeci.CurrentCell.RowIndex;
             try
             {
-                int seletirano = dgrPostojeci.CurrentCell.RowIndex;
                 Upiti.brisiDokument(dgrPostojeci.Rows[seletirano].Cells[5].Value.ToString(),idDokumenta);
                 dohvatiDokumente();
                 MessageBox.Show("Uspješno obrisan dokument!");
@@ -156,10 +155,25 @@ namespace PI
             }
             catch (Exception ex)
             {
-
+                Upiti.brisiSamoDokument(dgrPostojeci.Rows[seletirano].Cells[5].Value.ToString(), idDokumenta);
+                dohvatiDokumente();
+                MessageBox.Show("Uspješno obrisan dokument!");
+                if (idDokumenta == 2 || idDokumenta == 4)
+                {
+                    dohvatiProizvode();
+                }
+                else
+                {
+                    dohvatiRepromaterijal();
+                }
             }
         }
 
+        /// <summary>
+        /// Ispis odabranog tipa dokumenta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnIspis_Click(object sender, EventArgs e)
         {
             int selektirani = dgrPostojeci.CurrentCell.RowIndex;

@@ -246,6 +246,12 @@ namespace PI
             Baza.Instance.izvrsi_upit(sql);
         }
 
+        public static void brisiSamoDokument(string ID, int tip)
+        {
+            string sql = string.Format("DELETE FROM dokument WHERE \"ID\" ='{0}'", ID);
+            Baza.Instance.izvrsi_upit(sql);
+        }
+
         public static void brisiDokument(string ID, int tip)
         {
             string sql=string.Format("SELECT \"repromaterijalproizvodID\", \"kolicina\" FROM \"stavka\" WHERE \"dokumentID\" = '{0}'",ID);

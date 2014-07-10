@@ -30,22 +30,38 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.repromaterijalproizvodBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.baza = new PI.baza();
+            this.poslovnipartnerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poslovnipartnerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.bazaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.baza = new PI.baza();
             this.dokumentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.poslovnipartnerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poslovnipartnerTableAdapter = new PI.bazaTableAdapters.poslovnipartnerTableAdapter();
-            this.repromaterijalproizvodBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.repromaterijalproizvodTableAdapter = new PI.bazaTableAdapters.repromaterijalproizvodTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.repromaterijalproizvodBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baza)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.poslovnipartnerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.poslovnipartnerBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bazaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baza)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dokumentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.poslovnipartnerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repromaterijalproizvodBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // repromaterijalproizvodBindingSource
+            // 
+            this.repromaterijalproizvodBindingSource.DataMember = "repromaterijalproizvod";
+            this.repromaterijalproizvodBindingSource.DataSource = this.baza;
+            // 
+            // baza
+            // 
+            this.baza.DataSetName = "baza";
+            this.baza.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // poslovnipartnerBindingSource
+            // 
+            this.poslovnipartnerBindingSource.DataMember = "poslovnipartner";
+            this.poslovnipartnerBindingSource.DataSource = this.baza;
             // 
             // poslovnipartnerBindingSource1
             // 
@@ -57,39 +73,27 @@
             this.bazaBindingSource.DataSource = this.baza;
             this.bazaBindingSource.Position = 0;
             // 
-            // baza
-            // 
-            this.baza.DataSetName = "baza";
-            this.baza.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // dokumentBindingSource
             // 
             this.dokumentBindingSource.DataMember = "dokument";
             // 
             // reportViewer1
             // 
-            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Name = "DataSet2";
             reportDataSource1.Value = this.repromaterijalproizvodBindingSource;
+            reportDataSource2.Name = "pp";
+            reportDataSource2.Value = this.poslovnipartnerBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "PI.Forme.Report1.rdlc";
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "PI.Forme.Otpremnica.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(12, 12);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(686, 260);
+            this.reportViewer1.Size = new System.Drawing.Size(916, 582);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // poslovnipartnerBindingSource
-            // 
-            this.poslovnipartnerBindingSource.DataMember = "poslovnipartner";
-            this.poslovnipartnerBindingSource.DataSource = this.baza;
             // 
             // poslovnipartnerTableAdapter
             // 
             this.poslovnipartnerTableAdapter.ClearBeforeFill = true;
-            // 
-            // repromaterijalproizvodBindingSource
-            // 
-            this.repromaterijalproizvodBindingSource.DataMember = "repromaterijalproizvod";
-            this.repromaterijalproizvodBindingSource.DataSource = this.baza;
             // 
             // repromaterijalproizvodTableAdapter
             // 
@@ -99,17 +103,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 284);
+            this.ClientSize = new System.Drawing.Size(940, 606);
             this.Controls.Add(this.reportViewer1);
             this.Name = "IzvjestajOtpremnice";
             this.Text = "IzvjestajOtpremnice";
             this.Load += new System.EventHandler(this.IzvjestajOtpremnice_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.repromaterijalproizvodBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.baza)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.poslovnipartnerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.poslovnipartnerBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bazaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.baza)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dokumentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.poslovnipartnerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repromaterijalproizvodBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

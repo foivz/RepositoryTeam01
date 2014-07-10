@@ -32,7 +32,11 @@ namespace PI
             dgrProizvodi.DataSource = dt;
         }
 
-
+        /// <summary>
+        /// Ako se promijeni odabrani proizvod, dohvacaju se ponovo repromaterijali tog proizvoda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgrProizvodi_SelectionChanged(object sender, EventArgs e)
         {
             try

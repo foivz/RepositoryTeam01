@@ -153,6 +153,11 @@ namespace PI
             this.Close();
         }
 
+        /// <summary>
+        /// Ako se promijeni odabrani redak, automatski se popune podaci unutar forme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             try

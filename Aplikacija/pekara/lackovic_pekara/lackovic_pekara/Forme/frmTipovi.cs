@@ -32,7 +32,7 @@ namespace PI
         }
 
         /// <summary>
-        /// Aktivacija btn Dodaj
+        /// Dodavanje tipa proizvoda
         /// </summary>
         private void btnDodaj_Click(object sender, EventArgs e)
         {

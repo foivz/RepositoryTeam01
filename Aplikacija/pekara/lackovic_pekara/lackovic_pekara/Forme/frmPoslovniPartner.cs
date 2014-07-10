@@ -51,7 +51,7 @@ namespace PI
         }
 
         /// <summary>
-        /// aktivacija btn dodaj
+        /// aktivacija btn dodaj, dodavanje poslovnog partnera
         /// </summary>
         private void btnDodaj_Click(object sender, EventArgs e)
         {
@@ -72,7 +72,7 @@ namespace PI
         }
 
         /// <summary>
-        /// aktivacija btn obriši
+        /// aktivacija btn obriši, brisanje poslovnog partnera
         /// </summary>
         private void btnObrisi_Click(object sender, EventArgs e)
         {
