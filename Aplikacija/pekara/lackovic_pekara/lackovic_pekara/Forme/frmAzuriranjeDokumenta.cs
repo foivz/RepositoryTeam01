@@ -325,7 +325,7 @@ namespace PI
                 for (int i = 0; i < dgrStavke.Rows.Count - 1; i++)
                 {
                     kolicine.Add(dgrStavke.Rows[i].Cells[1].Value.ToString());
-                    popusti.Add(dgrStavke.Rows[i].Cells[2].Value.ToString());
+                    popusti.Add(dgrStavke.Rows[i].Cells[3].Value.ToString());
                     repromaterijali.Add(dgrStavke.Rows[i].Cells[0].Value.ToString());
                 }
 
