@@ -437,7 +437,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Round(Fields!cijena.Value*Fields!kolicina.Value*(Fields!popust.Value/100),2)</Value>
+                              <Value>=IIf(Fields!popust.Value,Round(Fields!cijena.Value*Fields!kolicina.Value*(Fields!popust.Value/100),2),Fields!kolicina.Value*Fields!cijena.Value)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -584,6 +584,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -595,8 +596,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Round(Sum(Fields!cijena.Value*Fields!kolicina.Value*(Fields!popust.Value/100)),2)</Value>
-                              <Style />
+                              <Value>=IIf(Fields!popust.Value&gt;0,Round(Sum(Fields!cijena.Value*Fields!kolicina.Value*(Fields!popust.Value/100)),2),Sum(Fields!kolicina.Value*Fields!cijena.Value))</Value>
+                              <Style>
+                                <Color>Red</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />

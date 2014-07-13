@@ -470,7 +470,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Sum(Fields!cijena.Value*Fields!kolicina.Value)</Value>
-                              <Style />
+                              <Style>
+                                <Color>Red</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
