@@ -62,7 +62,7 @@ namespace PI
                 txtEmail.Text = "";
             }
         }
-
+        //
         /// <summary>
         /// brisanje osobe iz baze podataka
         /// </summary>
